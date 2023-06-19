@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "@netlify/next": "^1.4.7",
-    "@netlify/plugin-nextjs": "^4.29.5-appdir.0"
+    "@netlify/plugin-nextjs": "^4.38.0-appdir.0"
   }
 }
