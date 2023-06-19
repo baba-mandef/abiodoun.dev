@@ -1,17 +1,29 @@
-import './globals.css'
-import { Quicksand } from 'next/font/google'
+"use client";
 
-const quick = Quicksand({ subsets: ['latin'] })
+import { CacheProvider } from "@chakra-ui/next-js";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import  Nav  from './components/partials/Nav'
+import theme from "./themes";
 
-export const metadata = {
-  title: 'Baba Mandef',
-  description: 'Imagination, beyond comprehension',
-}
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={quick.className}>{children}</body>
+      <head>
+        <title>
+          Baba Mandef
+        </title>
+        <meta name="description" content="Imagination, beyond comprehension"></meta>
+        
+      </head>
+      <body >
+        <CacheProvider>
+          <ChakraProvider theme={theme}>{children}</ChakraProvider>
+          
+          <Nav></Nav>
+        </CacheProvider>
+      </body>
     </html>
-  )
+  );
 }
