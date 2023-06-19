@@ -30,7 +30,7 @@ function Nav() {
               h="1px"
             />
 
-            <HStack pt="10px">
+            <HStack pt="15px">
               <Box mx="20px">
                 <Center>
                   <Icon
