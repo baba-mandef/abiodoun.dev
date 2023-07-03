@@ -1,47 +1,84 @@
-import { HStack, Box, Center, Image } from "@chakra-ui/react";
+import { Grid, GridItem, Box, Center, Image, Flex } from "@chakra-ui/react";
 
 export default function Stack() {
   return (
     <>
       <Center>
-      <HStack pt="10px">
-        <Box mx="10px">
-          <Center>
-            <Image src="img/python.png" boxSize="50" alt="python"></Image>
-          </Center>
-        </Box>
-        <Box mx="10px">
-          <Center>
-            <Image src="img/django.png" boxSize="50" alt="django"></Image>
-          </Center>
-        </Box>
-        <Box mx="10px">
-          <Center>
-            <Image src="img/php.png" boxSize="50" alt="php"></Image>
-          </Center>
-        </Box>
-        <Box mx="10px">
-          <Center>
-            <Image src="img/postgresql.png" boxSize="50" alt="postgresql"></Image>
-          </Center>
-        </Box>
-        <Box mx="10px">
-          <Center>
-            <Image src="img/javascript.png" boxSize="50" alt="javascript"></Image>
-          </Center>
-        </Box>
-        <Box mx="10px">
-          <Center>
-            <Image src="img/react.png" boxSize="50" alt="react"></Image>
-          </Center>
-        </Box>
-        <Box mx="10px">
-          <Center>
-            <Image src="img/docker.png" boxSize="50" alt="docker"></Image>
-          </Center>
-        </Box>
-       
-      </HStack>
+
+      <Flex>
+      <Grid templateColumns="repeat(9, 1fr)" gap={2} pt="10px" mx="10">
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/python.png"   alt="python"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+          
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/django.png"   alt="django"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/php.png"   alt="php"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/postgresql.png"   alt="postgresql"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/javascript.png"   alt="javascript"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/react.png"   alt="react"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/vue.png"   alt="vue"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/docker.png"   alt="docker"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+          <GridItem w="100%"  h="100%">
+            <Box  >
+              <Center>
+                <Image src="img/figma.png"   alt="docker"></Image>
+              </Center>
+            </Box>
+          </GridItem>
+        </Grid>  
+      </Flex>   
+     
       </Center>
     </>
   );
