@@ -5,10 +5,10 @@ export default function HomeBio() {
   return (
     <Center>
       <Box>
-        <Text align="justify" fontSize="18" mt="20" mb="5" p="2">
+        <Text align="justify" fontSize="18" my="10" mb="5" p="2">
           Hello! I'm{" "}
           <Box color="#ff7624" as="span">
-            Abiodoun
+            Abiodoun Paraïso
           </Box>
           , an African full-stack engineer enjoying building apps with python
           and javascript to tackle everyday challenges. Let's connect and dive
