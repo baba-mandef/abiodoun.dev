@@ -4,7 +4,7 @@ export default function Name() {
   return (
     <Center>
       <Box mt="10">
-        <Heading as="h3" fontSize="3xl">
+        <Heading as="h3" fontSize="2xl">
           <Box as="span" color="#ff7624">
             ABIODOUN
           </Box>{" "}
