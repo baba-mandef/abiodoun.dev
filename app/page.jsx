@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Center>
-        <Container maxW="3xl" mt="20">
+        <Container maxW="3xl" mb="80px" mt="20">
           <Grid>
             <GridItem>
               <Avatar />
