@@ -1,24 +1,25 @@
 import { extendTheme } from "@chakra-ui/react";
 import { Quicksand } from "next/font/google";
 
-const quick = Quicksand({ weight: ['500'], subsets: ["latin"],preload: false, });
+const quick = Quicksand({ weight: ['500'], subsets: ["latin"],preload: true, });
 
 const theme =  extendTheme({
   colors:{
-    brand : {
-      300 : "#ff7624"
+    orange : {
+      500 : "#ff7624"
     }
   },
     fonts: {
     heading: quick.style.fontFamily,
     body: quick.style.fontFamily,
+  
   },
   breakpoints: {
     sm: '320px',
     md: '768px',
-    lg: '960px',
-    xl: '1200px',
-    '2xl': '1536px',
+    lg: '1023px',
+    xl: '1215px',
+    '2xl': '1536px'
   },
   shadows: {
   
