@@ -2,7 +2,7 @@
 
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider, extendTheme, Grid, GridItem } from "@chakra-ui/react";
-import Nav from "./components/partials/Nav";
+import Nav from "./components/Nav";
 import theme from "./themes";
 
 export default function RootLayout({ children }) {
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <CacheProvider>
           <ChakraProvider theme={theme}>
             {children}
-            <Nav />
+            <Nav  />
           </ChakraProvider>
         </CacheProvider>
       </body>
