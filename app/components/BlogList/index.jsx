@@ -17,7 +17,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const baseUrl = "https://baba-mandef.onrender.com/api/v1/";
-
 export default function BlogList(/* img_source, title */) {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("latest");
@@ -99,7 +98,7 @@ export default function BlogList(/* img_source, title */) {
               {posts.slice(0, 3).map((post) => (
                
                 <Card w="sm" key={post.id} flexShrink="0" my={"5"} mx={"5"}>
-                   <Link  color={"#ff7624"} href={"/blog/" + post.slug}>
+                   <Link  color={"#ff7624"} href={"/blog/[slug]"} as={`/blog/${post.slug}`}>
                   <CardBody>
                     <Image src={post.banner} alt="banner" borderRadius="lg" />
                     <Stack mt="10" spacing="3">
