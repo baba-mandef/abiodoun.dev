@@ -1,7 +1,7 @@
 "use client";
 
 import { CacheProvider } from "@chakra-ui/next-js";
-import { ChakraProvider, extendTheme, Grid, GridItem } from "@chakra-ui/react";
+import { ChakraProvider, } from "@chakra-ui/react";
 import Nav from "./components/Nav";
 import theme from "./themes";
 
