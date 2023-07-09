@@ -10,12 +10,12 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import style from './global.css'
 const moment = require("moment");
 
 const baseUrl = "https://baba-mandef.onrender.com/api/v1/";
 
 export default function BlogSingle({ post_id }) {
+
   const [post, setPost] = useState({});
   const fetchPostDetails = async () => {
     try {
