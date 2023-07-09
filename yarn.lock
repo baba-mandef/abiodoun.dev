@@ -1171,7 +1171,7 @@
   dependencies:
     is-promise "^4.0.0"
 
-"@netlify/ipx@^1.4.0":
+"@netlify/ipx@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@netlify/ipx/-/ipx-1.4.1.tgz#5b0e7508e343b960e7e97d2094089dd1585c88f6"
   integrity sha512-wOuemSttKv8h4XMC9+RNNv21tn0uIC5avvnwmuFOyPOGzI1nsip01UkxS5lHRX+KX7TdIQxwBzSqde15h/jdRA==
@@ -1187,19 +1187,19 @@
     ufo "^1.0.0"
     unstorage "^1.0.0"
 
-"@netlify/next@^1.4.7":
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/@netlify/next/-/next-1.4.7.tgz#668153a1c08f4281a31d6347590fe8fb93e5e34c"
-  integrity sha512-gQlJ06ivOhRNLUUCRNHMSeECihzZpkOIRiI0rasOixhSGM7YHBo8LU35Y07tfnlIHb8F6iQcpTcZJzRq1WVodQ==
+"@netlify/next@^1.4.9":
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/@netlify/next/-/next-1.4.9.tgz#50e7bc72f9c5897ffdf1ec10d585a1a3ea15048a"
+  integrity sha512-lrbY+CEhS9x0jV7oXVYi/rqxZ6ht5KeLGNZsgIPI34kpDaBuD/EfsyKa28BWeSrFalxRZmkMxQYRSTa82v3roQ==
 
-"@netlify/plugin-nextjs@^4.38.0-appdir.0":
-  version "4.38.0"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.38.0.tgz#d4b66d64886cd172bf1bd2a20cf5b64f8da3d219"
-  integrity sha512-aMgdH5l7OU0MnjN2bPVDLGGbbLyclbxaEl8fij6MwgYyte9UVnsUVggl1TOG86KgHMbMYpdrtRJoh6LwV+PHOg==
+"@netlify/plugin-nextjs@^4.39.0":
+  version "4.39.0"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.39.0.tgz#8e447e80f29c0dcc6d45ef2a5f68815e17e72205"
+  integrity sha512-CkxVG+zidqHLb1nHEx0nMtt7DmSr4a27B4JFxr8jbFU8np9pHiLQ4bR+UvW5tzHdYSfw30Rt9XEQyHo1theq2Q==
   dependencies:
     "@netlify/esbuild" "0.14.39"
     "@netlify/functions" "^1.6.0"
-    "@netlify/ipx" "^1.4.0"
+    "@netlify/ipx" "^1.4.1"
     "@vercel/node-bridge" "^2.1.0"
     chalk "^4.1.2"
     chokidar "^3.5.3"
@@ -1214,7 +1214,7 @@
     node-stream-zip "^1.15.0"
     outdent "^0.8.0"
     p-limit "^3.1.0"
-    pathe "^0.2.0"
+    pathe "^0.3.0"
     pretty-bytes "^5.6.0"
     regexp-tree "^0.1.24"
     semver "^7.3.5"
@@ -3615,10 +3615,10 @@ path-type@^4.0.0:
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pathe@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.2.0.tgz#30fd7bbe0a0d91f0e60bae621f5d19e9e225c339"
-  integrity sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==
+pathe@^0.3.0:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.9.tgz#4baff768f37f03e3d9341502865fb93116f65191"
+  integrity sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==
 
 pathe@^1.1.1:
   version "1.1.1"
