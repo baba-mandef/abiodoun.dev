@@ -22,8 +22,8 @@
     "react-icons": "^4.9.0"
   },
   "devDependencies": {
-    "@netlify/next": "^1.4.7",
-    "@netlify/plugin-nextjs": "^4.38.0-appdir.0",
+    "@netlify/next": "^1.4.9",
+    "@netlify/plugin-nextjs": "^4.39.0",
     "axios": "^1.4.0",
     "form-data": "^4.0.0",
     "moment": "^2.29.4"
