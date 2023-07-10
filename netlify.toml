@@ -10,15 +10,12 @@
   status = 200
   force = true
 
-<<<<<<< HEAD
   [[redirects]]
   from = "/blog/"
   to = "/blog"
   status = 200
   force = true
 
-=======
->>>>>>> b5f9631986f9b36d4956fac811efa71bca3508df
 
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
