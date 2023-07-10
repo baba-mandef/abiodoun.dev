@@ -24,7 +24,7 @@ export default function Post() {
   const fetchPostDetails = async () => {
     try {
       const response = await axios.get(
-         `${baseUrl}blog/post?slug=${ router.query.slug}`
+        `${baseUrl}blog/post?slug=${router.query.slug}`
       );
       console.log(response.data);
       setPost(response.data[0]);
@@ -38,7 +38,7 @@ export default function Post() {
   };
 
   useEffect(() => {
-    if(router.isReady){
+    if (router.isReady) {
       fetchPostDetails();
     }
   }, [router.isReady]);
@@ -90,6 +90,13 @@ export default function Post() {
                           lg: "18px",
                           sm: "13px",
                         }}
+                        maxW={{
+                          base: "2xl",
+                          md: "lg",
+                          lg: "3xl",
+                          sm: "md",
+                        }}
+                        m="auto"
                         as="div"
                         textAlign={"justify"}
                         dangerouslySetInnerHTML={handleMarkup(post.post)}
