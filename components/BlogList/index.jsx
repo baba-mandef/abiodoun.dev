@@ -93,8 +93,8 @@ export default function BlogList(/* img_source, title */) {
       </Center>
       <Center>
         <VStack>
-          <Box maxW={{ base: "7xl", md: "7xl", sm: "lg" }}>
-            <HStack mx={"30px"} my={"20px"} overflowX="auto" style={mystyle}>
+          <Box maxW={{ base: "7xl", md: "lg", lg:"7xl", sm: "sm" }}>
+            <HStack mx={"10px"} my={"20px"} overflowX="auto" style={mystyle}>
               {posts.slice(0, 3).map((post) => (
                
                 <Card w="sm" key={post.id} flexShrink="0" my={"5"} mx={"5"}>
