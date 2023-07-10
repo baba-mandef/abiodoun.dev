@@ -4,6 +4,18 @@
   functions = "netlify/functions"
   publish = "out"
 
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog/[slug].html"
+  status = 200
+  force = true
+
+  [[redirects]]
+  from = "/blog/"
+  to = "/blog"
+  status = 200
+  force = true
+
 
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
