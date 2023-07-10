@@ -1,10 +1,9 @@
-"use client";
 import { Box, Container, Center, Grid, GridItem } from "@chakra-ui/react";
-import Avatar from "./components/Avatar";
-import Name from "./components/Name";
-import HomeDesc from "./components/descpription/HomeDesc";
-import HomeBio from "./components/bio/HomeBio";
-import Stack from "./components/Stack";
+import Avatar from "@/components/Avatar";
+import Name from "@/components/Name";
+import HomeDesc from "@/components/descpription/HomeDesc";
+import HomeBio from "@/components/bio/HomeBio";
+import Stack from "@/components/Stack";
 
 export default function Home() {
   return (
