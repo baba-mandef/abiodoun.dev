@@ -11,6 +11,8 @@ import {
   Box,
   VStack,
   Center,
+  Skeleton,
+  SkeletonText,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -21,7 +23,9 @@ export default function BlogList(/* img_source, title */) {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("latest");
   const [posts, setPosts] = useState([]);
-  const moment = require('moment');
+  const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
+  const moment = require("moment");
 
   const fechtCategories = async () => {
     try {
@@ -39,6 +43,8 @@ export default function BlogList(/* img_source, title */) {
       const response = await axios.get(baseUrl + "blog/post");
       console.log(response.data);
       setPosts(response.data);
+      setLoading(false);
+      setLoaded(true);
     } catch (e) {
       console.error("Error", e);
       throw e;
@@ -51,6 +57,8 @@ export default function BlogList(/* img_source, title */) {
       );
       console.log(response.data);
       setPosts(response.data);
+      setLoading(false);
+      setLoaded(true);
     } catch (e) {
       console.error("Error", e);
       throw e;
@@ -58,6 +66,8 @@ export default function BlogList(/* img_source, title */) {
   };
   const hanndleSelect = (event) => {
     setSelectedCategory(event.target.value);
+    setLoading(true);
+    setLoaded(false);
     console.log("Selected", event.target.value);
   };
 
@@ -93,36 +103,81 @@ export default function BlogList(/* img_source, title */) {
       </Center>
       <Center>
         <VStack>
-          <Box maxW={{ base: "7xl", md: "lg", lg:"7xl", sm: "sm" }}>
-            <HStack mx={"10px"} my={"20px"} overflowX="auto" style={mystyle}>
+          <Box maxW={{ base: "7xl", md: "lg", lg: "7xl", sm: "sm" }}>
+            <HStack hidden={loaded}>
+              <Card w={"sm"} my={"5"} mx={"5"}>
+                <Box padding="6">
+                  <Skeleton height="150px" />
+                  <SkeletonText
+                    mt="4"
+                    noOfLines={10}
+                    spacing="4"
+                    skeletonHeight="2"
+                  />
+                </Box>
+              </Card>
+
+              <Card w={"sm"} my={"5"} mx={"5"}>
+                <Box padding="6">
+                  <Skeleton height="150px" />
+                  <SkeletonText
+                    mt="4"
+                    noOfLines={10}
+                    spacing="4"
+                    skeletonHeight="2"
+                  />
+                </Box>
+              </Card>
+
+              <Card w={"sm"} my={"5"} mx={"5"}>
+                <Box padding="6">
+                  <Skeleton height="150px" />
+                  <SkeletonText
+                    mt="4"
+                    noOfLines={10}
+                    spacing="4"
+                    skeletonHeight="2"
+                  />
+                </Box>
+              </Card>
+            </HStack>
+            <HStack
+              hidden={loading}
+              mx={"10px"}
+              my={"20px"}
+              overflowX="auto"
+              style={mystyle}
+            >
               {posts.slice(0, 3).map((post) => (
-               
                 <Card w="sm" key={post.id} flexShrink="0" my={"5"} mx={"5"}>
-                   <Link  color={"#ff7624"} href={"/blog/[slug]"} as={`/blog/${post.slug}`}>
-                  <CardBody>
-                    <Image src={post.banner} alt="banner" borderRadius="lg" />
-                    <Stack mt="10" spacing="3">
-                      <Text fontWeight={"semibold"} size="md">
-                        {post.title.toUpperCase()}
-                      </Text>
-                      <small>
-                      {moment(post.created_at).format('MMMM Do YYYY') }
-                      </small>
-                    </Stack>
-                  </CardBody>
-                  <CardFooter>
-                    <Button
-                      variant={"outline"}
-                      w={"lg"}
-                      borderColor={"#ff7624"}
-                      color={"#ff7624"}
-                    >
-                      Read More
-                    </Button>
-                  </CardFooter>
+                  <Link
+                    color={"#ff7624"}
+                    href={"/blog/[slug]"}
+                    as={`/blog/${post.slug}`}
+                  >
+                    <CardBody>
+                      <Image src={post.banner} alt="banner" borderRadius="lg" />
+                      <Stack mt="10" spacing="3">
+                        <Text fontWeight={"semibold"} size="md">
+                          {post.title.toUpperCase()}
+                        </Text>
+                        <small>
+                          {moment(post.created_at).format("MMMM Do YYYY")}
+                        </small>
+                      </Stack>
+                    </CardBody>
+                    <CardFooter>
+                      <Button
+                        variant={"outline"}
+                        w={"lg"}
+                        borderColor={"#ff7624"}
+                        color={"#ff7624"}
+                      >
+                        Read More
+                      </Button>
+                    </CardFooter>
                   </Link>
                 </Card>
-               
               ))}
             </HStack>
           </Box>
