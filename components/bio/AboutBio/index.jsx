@@ -5,7 +5,7 @@ export default function AboutBio() {
   return (
     <Center>
       <Box>
-        <Text align="justify" fontSize="18" my="10" mb="5" p="2">
+        <Text align="justify" fontSize="16" my="10" mb="5" p="2">
           Greetings ! I'm{" "}
           <Box color="#ff7624" as="span">
             Abiodoun Paraïso
