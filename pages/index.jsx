@@ -1,5 +1,5 @@
 import { Box, Container, Center, Grid, GridItem } from "@chakra-ui/react";
-import Avatar from "@/components/Avatar";
+import Logo from "@/components/Logo";
 import Name from "@/components/Name";
 import HomeDesc from "@/components/descpription/HomeDesc";
 import HomeBio from "@/components/bio/HomeBio";
@@ -12,7 +12,7 @@ export default function Home() {
         <Container maxW="3xl" mb="80px" mt="20">
           <Grid>
             <GridItem>
-              <Avatar />
+              <Logo />
             </GridItem>
             <GridItem>
               <Name />

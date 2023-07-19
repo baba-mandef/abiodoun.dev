@@ -1,6 +1,6 @@
 "use client";
 import { Center, Grid, GridItem } from "@chakra-ui/react";
-import Avatar from "@/components/Avatar";
+import Logo from "@/components/Logo";
 import Name from "@/components/Name";
 import BlogList from "@/components/BlogList";
 export default function Blog() {
@@ -10,7 +10,7 @@ export default function Blog() {
         
           <Grid>
             <GridItem>
-              <Avatar />
+              <Logo />
             </GridItem>
             <GridItem>
               <Name />
