@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@netlify/next": "^1.4.9",
-    "@netlify/plugin-nextjs": "^4.39.0",
+    "@netlify/plugin-nextjs": "^4.39.1",
     "axios": "^1.4.0",
     "form-data": "^4.0.0",
     "moment": "^2.29.4"
