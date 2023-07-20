@@ -9,9 +9,15 @@ import {
 } from "@chakra-ui/react";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaHome, FaUserCircle, FaFileAlt, FaBriefcase } from "react-icons/fa";
 
 export default function Nav() {
+
+  const activeStyle = {backgroundColor: "#ff762457"}; 
+  const nonActiveStyle ={backgroundColor: "#ffffff"};
+  const currentRoute = usePathname();
+
   return (
     <>
       <Center>
@@ -24,6 +30,7 @@ export default function Nav() {
           pb="20px"
           centerContent
           borderRadius="lg"
+          px={"10px"}
         >
           <Box>
             <Divider
@@ -35,63 +42,72 @@ export default function Nav() {
 
             <HStack pt="15px">
               <Link href="/">
-              <Box mx="10px" as="button">
-                <Center>
-                  <Icon as={FaHome} color={"#ff7624"} boxSize={15} mr="10px" />
-                  <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
-                    Home
-                  </Text>
-                </Center>
+                <Box
+                  mx="5px"
+                  p={"5px"}
+                  borderRadius={"5px"}
+                  as="button"
+                  style={currentRoute === '/' ? activeStyle : nonActiveStyle}
+                >
+                  <Center>
+                    <Icon as={FaHome} color={"#ff7624"} boxSize={15} mr="5px" />
+                    <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
+                      Home
+                    </Text>
+                  </Center>
                 </Box>
               </Link>
-              
+
               <Link href="/about">
-              <Box mx="10px" as="button">
-                <Center>
-                  <Icon
-                    as={FaUserCircle}
-                    color={"#ff7624"}
-                    boxSize={15}
-                    mr="10px"
-                  />
-                  <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
-                    About
-                  </Text>
-                </Center>
+                <Box mx="5px" as="button" p={"5px"} borderRadius={"5px"}
+                style={currentRoute === '/about' ? activeStyle : nonActiveStyle}
+                >
+                  <Center>
+                    <Icon
+                      as={FaUserCircle}
+                      color={"#ff7624"}
+                      boxSize={15}
+                      mr="5px"
+                    />
+                    <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
+                      About
+                    </Text>
+                  </Center>
                 </Box>
               </Link>
 
               <Link href="/blog">
-              <Box mx="10px" as="button">
-                <Center>
-                  <Icon
-                    as={FaFileAlt}
-                    color={"#ff7624"}
-                    boxSize={15}
-                    mr="10px"
-                  />
-                  <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
-                    Blog 
-                  </Text>
-                </Center>
+                <Box mx="5px" as="button" p={"5px"} borderRadius={"5px"}
+                style={currentRoute === '/blog' ? activeStyle : nonActiveStyle}>
+                  <Center>
+                    <Icon
+                      as={FaFileAlt}
+                      color={"#ff7624"}
+                      boxSize={15}
+                      mr="5px"
+                    />
+                    <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
+                      Blog
+                    </Text>
+                  </Center>
                 </Box>
               </Link>
               <Link href="/projects">
-              <Box mx="10px" as="button">
-                <Center>
-                  <Icon
-                    as={FaBriefcase}
-                    color={"#ff7624"}
-                    boxSize={15}
-                    mr="10px"
-                  />
-                  <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
-                    Projects
-                  </Text>
-                </Center>
+                <Box mx="5px" as="button" p={"5px"} borderRadius={"5px"}
+                style={currentRoute === '/projects' ? activeStyle : nonActiveStyle}>
+                  <Center>
+                    <Icon
+                      as={FaBriefcase}
+                      color={"#ff7624"}
+                      boxSize={15}
+                      mr="5px"
+                    />
+                    <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
+                      Projects
+                    </Text>
+                  </Center>
                 </Box>
               </Link>
-            
             </HStack>
           </Box>
         </Container>
