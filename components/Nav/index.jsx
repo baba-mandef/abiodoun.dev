@@ -78,7 +78,7 @@ export default function Nav() {
 
               <Link href="/blog">
                 <Box mx="5px" as="button" p={"5px"} borderRadius={"5px"}
-                style={currentRoute === '/blog' ? activeStyle : nonActiveStyle}>
+                style={ String(currentRoute).startsWith('/blog') ? activeStyle : nonActiveStyle}>
                   <Center>
                     <Icon
                       as={FaFileAlt}
@@ -94,7 +94,7 @@ export default function Nav() {
               </Link>
               <Link href="/projects">
                 <Box mx="5px" as="button" p={"5px"} borderRadius={"5px"}
-                style={currentRoute === '/projects' ? activeStyle : nonActiveStyle}>
+                style={ String(currentRoute).startsWith('/projects') ? activeStyle : nonActiveStyle}>
                   <Center>
                     <Icon
                       as={FaBriefcase}
