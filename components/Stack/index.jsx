@@ -5,8 +5,8 @@ export default function Stack() {
     <>
       <Center>
 
-      <Flex>
-      <SimpleGrid columns={{ base: "4", md: "4", lg: "8", sm: "4" }} spacing={"10"} pt="10px" mx="10">
+    
+      <SimpleGrid columns={{ base: "4", md: "4", lg: "8", sm: "4" }} spacing={{ base: "10", md: "10", lg: "10", sm: "7" }} pt="10px">
           
             <Box  boxSize={"50px"}>
               <Center>
@@ -62,21 +62,9 @@ export default function Stack() {
                 <Image src="img/react.png"   alt="react"></Image>
               </Center>
             </Box>
-         
-           {/*  <Box  >
-              <Center>
-                <Image src="img/vue.png"   alt="vue"></Image>
-              </Center>
-            </Box>
-     
-            <Box  >
-              <Center>
-                <Image src="img/kt.png"   alt="kotlin"></Image>
-              </Center>
-            </Box>
-         */}
+  
         </SimpleGrid>  
-      </Flex>   
+
      
       </Center>
     </>
