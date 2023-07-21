@@ -13,6 +13,8 @@ import {
   Center,
   Skeleton,
   SkeletonText,
+  Hide,
+  
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -80,10 +82,11 @@ export default function BlogList(/* img_source, title */) {
     }
   }, [selectedCategory]);
 
-  const mystyle = {};
+
 
   return (
     <>
+    
       <Center>
         <Select
           mt={"20px"}
@@ -117,36 +120,39 @@ export default function BlogList(/* img_source, title */) {
                 </Box>
               </Card>
 
-              <Card w={"sm"} my={"5"} mx={"5"}>
-                <Box padding="6">
-                  <Skeleton height="150px" />
-                  <SkeletonText
-                    mt="4"
-                    noOfLines={10}
-                    spacing="4"
-                    skeletonHeight="2"
-                  />
-                </Box>
-              </Card>
-
-              <Card w={"sm"} my={"5"} mx={"5"}>
-                <Box padding="6">
-                  <Skeleton height="150px" />
-                  <SkeletonText
-                    mt="4"
-                    noOfLines={10}
-                    spacing="4"
-                    skeletonHeight="2"
-                  />
-                </Box>
-              </Card>
+              <Hide below="lg">
+                <Card w={"sm"} my={"5"} mx={"5"}>
+                  <Box padding="6">
+                    <Skeleton height="150px" />
+                    <SkeletonText
+                      mt="4"
+                      noOfLines={10}
+                      spacing="4"
+                      skeletonHeight="2"
+                    />
+                  </Box>
+                </Card>
+              </Hide>
+              <Hide below="lg">
+                <Card w={"sm"} my={"5"} mx={"5"}>
+                  <Box padding="6">
+                    <Skeleton height="150px" />
+                    <SkeletonText
+                      mt="4"
+                      noOfLines={10}
+                      spacing="4"
+                      skeletonHeight="2"
+                    />
+                  </Box>
+                </Card>
+              </Hide>
             </HStack>
             <HStack
               hidden={loading}
               mx={"10px"}
               my={"20px"}
               overflowX="auto"
-              style={mystyle}
+          
             >
               {posts.slice(0, 3).map((post) => (
                 <Card w="sm" key={post.id} flexShrink="0" my={"5"} mx={"5"}>
