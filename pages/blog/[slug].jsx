@@ -48,13 +48,13 @@ export default function Post() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [comment, setComment] = useState("");
-  const toast = useToast()
+  const toast = useToast();
 
   const handleCommentSubmit = async () => {
     try {
       const FormData = require("form-data");
       const form = new FormData();
-      
+
       form.append("author_name", name);
       form.append("author_mail", email);
       form.append("body", comment);
@@ -62,35 +62,34 @@ export default function Post() {
 
       const response = await axios.post(`${baseUrl}blog/comment`, form);
       console.log(response.data);
-      fetchComments()
+      fetchComments();
       toast({
-        title: 'Comment sent',
-        description: "Your comment has been submitted successfully. Thank you for reading !",
-        status: 'success',
+        title: "Comment sent",
+        description:
+          "Your comment has been submitted successfully. Thank you for reading !",
+        status: "success",
         duration: 3000,
         isClosable: true,
-      })
-      onClose()
+      });
+      onClose();
     } catch (e) {
       console.error("Error", e);
       throw e;
     }
   };
 
-  const fetchComments = async ()=>{
-
+  const fetchComments = async () => {
     try {
       const response = await axios.get(
         `${baseUrl}blog/comment?post=${router.query.slug}`
       );
       console.log(response.data);
       setComments(response.data);
-    
     } catch (e) {
       console.error("Error", e);
       throw e;
     }
-  }
+  };
 
   const fetchPostDetails = async () => {
     try {
@@ -99,9 +98,9 @@ export default function Post() {
       );
       console.log(response.data);
       setPost(response.data[0]);
-        fetchComments()
-        setLoading(false);
-        setLoaded(true);
+      fetchComments();
+      setLoading(false);
+      setLoaded(true);
     } catch (e) {
       console.error("Error", e);
       throw e;
@@ -121,7 +120,7 @@ export default function Post() {
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} size={{base:"md", sm:'xs', md:'md', lg:"lg"}} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Add a comment</ModalHeader>
@@ -178,7 +177,7 @@ export default function Post() {
           </GridItem>
           <GridItem hidden={loaded}>
             <Box padding="6" w={{ base: "3xl", md: "lg", lg: "3xl", sm: "sm" }}>
-              Loading ....
+             
               <Skeleton height="250px" />
               <SkeletonText
                 mt="4"
@@ -225,6 +224,7 @@ export default function Post() {
                           lg: "16px",
                           sm: "13px",
                         }}
+                        overflowWrap={"break-word"}
                         maxW={{
                           base: "2xl",
                           md: "lg",
