@@ -5,6 +5,9 @@ const quick = Quicksand({ weight: ['500'], subsets: ["latin"],preload: true, });
 
 const theme =  extendTheme({
   colors:{
+    brand : {
+      500 : "#ff7624"
+    },
     orange : {
       500 : "#ff7624"
     }
