@@ -1,16 +1,16 @@
-import { Box, Center, Text } from "@chakra-ui/react";
+import { Box, Center, Heading } from "@chakra-ui/react";
 
 export default function AboutDesc() {
   return (
     <Center>
       <Box>
-        <Text fontSize={{ base: '18px', md: '18px', lg: '18px', sm:'11px' }} fontWeight={"bold"}>
+        <Heading as={"h6"} size={"xs"} color={"brandark.500"} fontWeight={"bold"}>
           Tech enthusiast{" "}
-          <Box color="#ff7624" as="span">
+          <Box color="brand.500" as="span">
             - Software engineer -
           </Box>
           {" "}Nature Lover
-        </Text>
+        </Heading>
       </Box>
     </Center>
   );
