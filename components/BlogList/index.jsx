@@ -14,7 +14,8 @@ import {
   Skeleton,
   SkeletonText,
   Hide,
-  
+  Heading,
+  Divider,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -82,21 +83,18 @@ export default function BlogList(/* img_source, title */) {
     }
   }, [selectedCategory]);
 
-
-
   return (
     <>
-    
       <Center>
         <Select
           mt={"20px"}
           variant={"unstyled"}
           value={selectedCategory}
           w={"max-content"}
-          color={"#ff7624"}
+          color={"brand.500"}
           onChange={hanndleSelect}
         >
-          <option value="latest">latest</option>
+          <option value="latest">récents</option>
           {categories.map((category) => (
             <option key={category.title} value={category.id}>
               {category.title}
@@ -147,39 +145,30 @@ export default function BlogList(/* img_source, title */) {
                 </Card>
               </Hide>
             </HStack>
-            <HStack
-              hidden={loading}
-              mx={"10px"}
-              my={"20px"}
-              overflowX="auto"
-          
-            >
+            <HStack hidden={loading} mx={"10px"} my={"20px"} overflowX="auto">
               {posts.slice(0, 3).map((post) => (
-                <Card w="sm" key={post.id} flexShrink="0" my={"5"} mx={"5"}>
+                <Card w="sm" key={post.id} flexShrink="0" my={"5"} mx={"5"} boxShadow={"md"}>
                   <Link
-                    color={"#ff7624"}
+                    color={"brand.500"}
                     href={"/blog/[slug]"}
                     as={`/blog/${post.slug}`}
                   >
                     <CardBody>
                       <Image src={post.banner} alt="banner" borderRadius="lg" />
                       <Stack mt="10" spacing="3">
-                        <Text fontWeight={"semibold"} size="md">
+                        <Heading as={"h5"} size="sm" color={"brandark.500"}>
                           {post.title.toUpperCase()}
-                        </Text>
-                        <small>
-                          {moment(post.created_at).format("MMMM Do YYYY")}
-                        </small>
+                        </Heading>
+                        <Box as={"p"} color={"brand.500"} fontWeight={"bold"}>
+                          {moment(post.created_at).format("Do MMMM YYYY")}
+                        </Box>
                       </Stack>
+                  
                     </CardBody>
+                    
                     <CardFooter>
-                      <Button
-                        variant={"outline"}
-                        w={"lg"}
-                        borderColor={"#ff7624"}
-                        color={"#ff7624"}
-                      >
-                        Read More
+                      <Button variant={"solid"} w={"lg"} colorScheme="brand">
+                        Lire
                       </Button>
                     </CardFooter>
                   </Link>
