@@ -1,7 +1,7 @@
 "use client";
 
 import { CacheProvider } from "@chakra-ui/next-js";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import Head from "next/head";
 import Nav from "@/components/Nav";
 import theme from "@/themes";
@@ -19,7 +19,9 @@ export default function Layout({ children }) {
               content="Imagination, beyond comprehension"
             ></meta>
           </Head>
+          <Box as="div" mb={"50px"}>
           {children}
+          </Box>
           <Nav />
         </ChakraProvider>
       </CacheProvider>
