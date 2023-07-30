@@ -1,4 +1,4 @@
-import { Box, Center, Text, Link } from "@chakra-ui/react";
+import { Box, Center, Heading, Link } from "@chakra-ui/react";
 
 export default function Stack() {
   return (
@@ -30,16 +30,17 @@ export default function Stack() {
 
       <Center>
         <Box>
-          <Text
-            fontSize={{ base: "18px", md: "18px", lg: "18px", sm: "15px" }}
-            fontWeight={"bold"}
+          <Heading
+           color={"brandark.500"}
+           as={"h4"}
+           size={"md"}
           >
-            Contacts = [ <Link href='https://twitter.com/baba_mandef' isExternal>Twitter</Link>{" "}
-            <Box color="#ff7624" as="span">
+            [ <Link href='https://twitter.com/baba_mandef' isExternal>Twitter</Link>{" "}
+            <Box color="brand.500" as="span">
             <Link href='https://github.com/baba-mandef' isExternal>- Github -</Link>
             </Box>{" "}
             <Link href='https://t.me/baba_mandef' isExternal>Telegram</Link> ]
-          </Text>
+          </Heading>
         </Box>
       </Center>
     </>
