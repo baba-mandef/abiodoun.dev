@@ -4,8 +4,8 @@ export default function Name() {
   return (
     <Center>
       <Box mt="10">
-        <Heading as="h3" fontSize="2xl">
-          <Box as="span" color="#ff7624">
+        <Heading as="h3" fontSize="2xl" color={"brandark.500"}>
+          <Box as="span" color="brand.500">
             ABIODOUN
           </Box>{" "}
           BABA MANDEF
