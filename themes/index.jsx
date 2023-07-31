@@ -1,29 +1,34 @@
 import { extendTheme } from "@chakra-ui/react";
-import { Quicksand } from "next/font/google";
+import { Poppins, Quicksand } from "next/font/google";
 
-const quick = Quicksand({ weight: ['500'], subsets: ["latin"],preload: true, });
-
+const pop = Poppins({ weight: ['700'], subsets: ["latin"],preload: true, });
+const pop_s = Quicksand({ weight: ['600'], subsets: ["latin"],preload: true, });
 const theme =  extendTheme({
   colors:{
     brand : {
-      500 : "#ff7624"
+      500 : "#ff7624",
+
+      100 :'#ffab7b',
     },
     orange : {
       500 : "#ff7624"
+    },
+    brandark:{
+      500 : "#000a40"
     }
   },
     fonts: {
-    heading: quick.style.fontFamily,
-    body: quick.style.fontFamily,
+    heading: pop.style.fontFamily,
+    body: pop_s.style.fontFamily,
   
   },
-  breakpoints: {
+/*   breakpoints: {
     sm: '320px',
     md: '768px',
     lg: '1023px',
     xl: '1215px',
-    '2xl': '1536px'
-  },
+   
+  }, */
   shadows: {
   
     barShadow: "0px 4px 4px rgba(0, 0, 0, 0.5)",
