@@ -91,7 +91,14 @@ export default function Post() {
    
     } catch (e) {
       console.error("Error", e);
-      throw e;
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur s'est produite",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
     }
   };
 
@@ -104,7 +111,14 @@ export default function Post() {
       setComments(response.data);
     } catch (e) {
       console.error("Error", e);
-      throw e;
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur s'est produite lors du chargement des données",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
     }
   };
 
@@ -120,7 +134,15 @@ export default function Post() {
       setLoaded(true);
     } catch (e) {
       console.error("Error", e);
-      throw e;
+     
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur s'est produite lors du chargement des données",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
     }
   };
   const handleMarkup = (html) => {
@@ -170,7 +192,7 @@ export default function Post() {
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 
-                placeholder="Votre adresse electronique"
+                placeholder="Votre adresse électronique"
               />
               <FormHelperText color={"brand.500"}>
                 Nous ne divulgerons jamais votre adresse.
@@ -359,6 +381,7 @@ export default function Post() {
                               size="xs"
                               fontWeight={"bold"}
                               pb={"5px"}
+                              mt={'15px'}
                               textAlign={"right"}
                             >
                              {moment(_comment.created_at).fromNow()} 
