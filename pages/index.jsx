@@ -1,4 +1,4 @@
-import { Box, Container, Center, Grid, GridItem } from "@chakra-ui/react";
+import { Container, Center, Grid, GridItem } from "@chakra-ui/react";
 import Logo from "@/components/Logo";
 import Name from "@/components/Name";
 import HomeDesc from "@/components/descpription/HomeDesc";

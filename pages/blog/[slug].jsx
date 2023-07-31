@@ -34,7 +34,9 @@ import Name from "@/components/Name";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-const moment = require("moment");
+var moment = require("moment");
+import 'moment/locale/fr';
+moment.locale('fr');
 
 const baseUrl = "https://baba-mandef.onrender.com/api/v1/";
 
@@ -52,26 +54,41 @@ export default function Post() {
 
   const handleCommentSubmit = async () => {
     try {
-      const FormData = require("form-data");
-      const form = new FormData();
 
-      form.append("author_name", name);
-      form.append("author_mail", email);
-      form.append("body", comment);
-      form.append("post", post.id);
+      if(name && email && comment !=""){
+        const FormData = require("form-data");
+        const form = new FormData();
+  
+        form.append("author_name", name);
+        form.append("author_mail", email);
+        form.append("body", comment);
+        form.append("post", post.id);
+  
+        const response = await axios.post(`${baseUrl}blog/comment`, form);
+        console.log(response.data);
+        fetchComments();
+        toast({
+          title: "Commentaire envoyé",
+          description:
+            "Votre commentaire à été soumis avec succes ! Merci d'avoir lu.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        onClose();
+      }
+      else{
+        toast({
+          title: "Erreur",
+          description:
+            "Tous les champs sont requis",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
 
-      const response = await axios.post(`${baseUrl}blog/comment`, form);
-      console.log(response.data);
-      fetchComments();
-      toast({
-        title: "Comment sent",
-        description:
-          "Your comment has been submitted successfully. Thank you for reading !",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-      onClose();
+   
     } catch (e) {
       console.error("Error", e);
       throw e;
@@ -120,52 +137,72 @@ export default function Post() {
 
   return (
     <>
-      <Modal isOpen={isOpen} size={{base:"md", sm:'xs', md:'md', lg:"lg"}} onClose={onClose}>
+      {/* 
+
+        ****************************************
+        ************* COMMENT MODAL ************
+        ****************************************
+      
+      */}
+      <Modal
+        isOpen={isOpen}
+        size={{ base: "md", sm: "xs", md: "md", lg: "lg" }}
+        onClose={onClose}
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Add a comment</ModalHeader>
+          <ModalHeader color={"brandark.500"}>Ajouter un commentaire</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>Full name</FormLabel>
+              <FormLabel color={"brandark.500"}>Nom</FormLabel>
               <Input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Full name"
+                placeholder="Votre nom complet"
               />
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Email</FormLabel>
+              <FormLabel color={"brandark.500"}>Email</FormLabel>
               <Input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                placeholder="Your email address"
+                
+                placeholder="Votre adresse electronique"
               />
               <FormHelperText color={"brand.500"}>
-                We will never share your email.
+                Nous ne divulgerons jamais votre adresse.
               </FormHelperText>
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Your comment</FormLabel>
+              <FormLabel color={"brandark.500"} >Commentaire</FormLabel>
               <Textarea
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Write your comment here"
+                placeholder="Ecrivez votre commentaire ici"
               />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="brand" onClick={handleCommentSubmit} mr={3}>
-              Save
+              Envoyer
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <Button  onClick={onClose}>Annuler</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
+
+      {/* 
+
+        ****************************************
+        ************* MAIN CONTENT *************
+        ****************************************
+      
+      */}
 
       <Center mx="5%" mb="80px" mt="20">
         <Grid>
@@ -175,9 +212,16 @@ export default function Post() {
           <GridItem>
             <Name />
           </GridItem>
+          {/* 
+
+        ****************************************
+        *************** SEKELETON **************
+        ****************************************
+      
+          */}
+
           <GridItem hidden={loaded}>
             <Box padding="6" w={{ base: "3xl", md: "lg", lg: "3xl", sm: "sm" }}>
-             
               <Skeleton height="250px" />
               <SkeletonText
                 mt="4"
@@ -187,6 +231,16 @@ export default function Post() {
               />
             </Box>
           </GridItem>
+
+            {/* 
+
+        ****************************************
+        ************** POST CONTENT ************
+        ****************************************
+      
+          */}
+      
+
           <GridItem hidden={loading}>
             <Center>
               <Container
@@ -198,7 +252,7 @@ export default function Post() {
                     <GridItem>
                       <Text
                         textAlign={"center"}
-                        color={"#ff7624"}
+                        color={"brand.500"}
                         fontSize={{
                           base: "18px",
                           md: "18px",
@@ -207,17 +261,18 @@ export default function Post() {
                         }}
                         fontWeight={"bold"}
                       >
-                        {moment(post.created_at).format("MMMM Do YYYY")}
+                        {moment(post.created_at).format("Do MMMM YYYY")}
                       </Text>
                     </GridItem>
                     <GridItem mt={"30px"}>
-                      <Heading textAlign={"center"}>{post.title}</Heading>
+                      <Heading as={"h3"} color={"brandark.500"} size={"lg"} textAlign={"center"}>{String(post.title).toUpperCase()}</Heading>
                     </GridItem>
                     <GridItem mt={"20px"}>
-                      <Image src={post.banner} alt="banner" borderRadius="lg" />
+                      <Image src={post.banner} boxShadow={"md"} alt="banner" borderRadius="lg" />
                     </GridItem>
                     <GridItem mt={"30px"}>
                       <Box
+                       color={"brandark.500"}
                         fontSize={{
                           base: "16px",
                           md: "16px",
@@ -247,8 +302,9 @@ export default function Post() {
                               textAlign={"center"}
                               size="lg"
                               mb={"10px"}
+                              color={"brandark.500"}
                             >
-                              Comments
+                              Commentaires
                             </Heading>
                           </Box>
                           <Box>
@@ -258,13 +314,17 @@ export default function Post() {
                               colorScheme="brand"
                               variant="solid"
                             >
-                              Add a comment
+                             Nouveau
                             </Button>
                           </Box>
                         </HStack>
                       </Center>
 
                       <Divider bg="black" w="100%" h="1px" mb={"30px"} />
+{/* 
+                      ****************************************
+                      ************** COMMENT LIST ************
+                      **************************************** */}
 
                       {comments.map((_comment) => (
                         <HStack key={_comment.id} mb={"30px"}>
@@ -291,7 +351,18 @@ export default function Post() {
                               {_comment.author_name}
                             </Heading>
 
-                            <Text>{_comment.body}</Text>
+                            <Text  color={"brandark.500"}>{_comment.body}</Text>
+                          
+                            <Heading
+                              textColor={"brandark.500"}
+                              as="h4"
+                              size="xs"
+                              fontWeight={"bold"}
+                              pb={"5px"}
+                              textAlign={"right"}
+                            >
+                             {moment(_comment.created_at).fromNow()} 
+                            </Heading>
                           </Box>
                         </HStack>
                       ))}

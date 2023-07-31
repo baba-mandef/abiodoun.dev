@@ -1,15 +1,15 @@
-import { Box, Center, Text } from "@chakra-ui/react";
+import { Box, Center, Heading } from "@chakra-ui/react";
 
 export default function HomeDesc() {
   return (
     <Center>
       <Box>
-        <Text fontSize={{ base: '18px', md: '18px', lg: '18px', sm:'17px' }}  fontWeight={"bold"}>
+        <Heading as={"h6"} size={"md"} color={"brandark.500"} fontWeight={"bold"}>
           Imagination,{" "}
-          <Box color="#ff7624" as="span">
+          <Box color="brand.500" as="span">
             Beyond comprehension
           </Box>
-        </Text>
+        </Heading>
       </Box>
     </Center>
   );

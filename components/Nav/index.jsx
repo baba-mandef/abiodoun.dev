@@ -5,7 +5,7 @@ import {
   Box,
   Divider,
   Icon,
-  Text,
+  Heading,
 } from "@chakra-ui/react";
 
 import Link from "next/link";
@@ -29,13 +29,14 @@ export default function Nav() {
           bottom="0"
           pb="20px"
           centerContent
-          borderRadius="lg"
+          borderRadius="3xs"
           px={"10px"}
         >
           <Box>
             <Divider
-              bg="gray"
-              //boxShadow="0px 2px 2px rgba(0, 0, 0, 0.3)"
+              bg="brand.100"
+              
+              //bo3xshadow="0px 2px 2px rgba(0, 0, 0, 0.3)"
               w="100%"
               h="1px"
             />
@@ -50,10 +51,10 @@ export default function Nav() {
                   style={currentRoute === '/' ? activeStyle : nonActiveStyle}
                 >
                   <Center>
-                    <Icon as={FaHome} color={"#ff7624"} boxSize={15} mr="5px" />
-                    <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
-                      Home
-                    </Text>
+                    <Icon as={FaHome} color={"brand.500"} bo3xsize={15} mr="5px" />
+                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={"3xs"}>
+                      Accueil
+                    </Heading>
                   </Center>
                 </Box>
               </Link>
@@ -65,13 +66,13 @@ export default function Nav() {
                   <Center>
                     <Icon
                       as={FaUserCircle}
-                      color={"#ff7624"}
-                      boxSize={15}
+                      color={"brand.500"}
+                      bo3xsize={15}
                       mr="5px"
                     />
-                    <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
-                      About
-                    </Text>
+                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={"3xs"}>
+                      Profil
+                    </Heading>
                   </Center>
                 </Box>
               </Link>
@@ -82,29 +83,30 @@ export default function Nav() {
                   <Center>
                     <Icon
                       as={FaFileAlt}
-                      color={"#ff7624"}
-                      boxSize={15}
+                      color={"brand.500"}
+                      bo3xsize={15}
                       mr="5px"
                     />
-                    <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
+                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={"3xs"}>
                       Blog
-                    </Text>
+                    </Heading>
                   </Center>
                 </Box>
               </Link>
+
               <Link href="/projects">
                 <Box mx="5px" as="button" p={"5px"} borderRadius={"5px"}
                 style={ String(currentRoute).startsWith('/projects') ? activeStyle : nonActiveStyle}>
                   <Center>
                     <Icon
                       as={FaBriefcase}
-                      color={"#ff7624"}
-                      boxSize={15}
+                      color={"brand.500"}
+                      bo3xsize={15}
                       mr="5px"
                     />
-                    <Text fontWeight={"bold"} color={"#000000"} fontSize={"14"}>
-                      Projects
-                    </Text>
+                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={"3xs"}>
+                      Projets
+                    </Heading>
                   </Center>
                 </Box>
               </Link>
