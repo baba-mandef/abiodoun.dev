@@ -37,7 +37,7 @@ export default function About() {
                <Center>
                <TabList>
                   <Tab>A propos</Tab>
-                  <Tab>Outils</Tab>
+                  {/* <Tab>Outils</Tab> */}
                   <Tab>Parcours</Tab>
                 </TabList>
                </Center>
@@ -46,9 +46,9 @@ export default function About() {
                   <TabPanel>
                     <AboutBio />
                   </TabPanel>
-                  <TabPanel>
+                  {/* <TabPanel>
                     <p>two!</p>
-                  </TabPanel>
+                  </TabPanel> */}
                   <TabPanel>
                     <p>three!</p>
                   </TabPanel>

@@ -4,7 +4,7 @@ export default function HomeDesc() {
   return (
     <Center>
       <Box>
-        <Heading as={"h6"} size={"md"} color={"brandark.500"} fontWeight={"bold"}>
+        <Heading as={"h6"} size={{base:"sm", md:"md", lg:"md" }} color={"brandark.500"} fontWeight={"bold"}>
           Imagination,{" "}
           <Box color="brand.500" as="span">
             Beyond comprehension

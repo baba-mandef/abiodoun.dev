@@ -16,6 +16,7 @@ import {
   Hide,
   Heading,
   Divider,
+  useToast,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -29,6 +30,7 @@ export default function BlogList(/* img_source, title */) {
   const [loading, setLoading] = useState(true);
   const [loaded, setLoaded] = useState(false);
   const moment = require("moment");
+  const toast = useToast()
 
   const fechtCategories = async () => {
     try {
@@ -37,7 +39,7 @@ export default function BlogList(/* img_source, title */) {
       setCategories(response.data);
     } catch (e) {
       console.error("Error", e);
-      throw e;
+     
     }
   };
 
@@ -50,7 +52,14 @@ export default function BlogList(/* img_source, title */) {
       setLoaded(true);
     } catch (e) {
       console.error("Error", e);
-      throw e;
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur s'est produite lors du chargement des données",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
     }
   };
   const fetchPosts = async () => {
@@ -64,7 +73,14 @@ export default function BlogList(/* img_source, title */) {
       setLoaded(true);
     } catch (e) {
       console.error("Error", e);
-      throw e;
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur s'est produite lors du chargement des données",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
     }
   };
   const hanndleSelect = (event) => {
@@ -106,17 +122,33 @@ export default function BlogList(/* img_source, title */) {
         <VStack>
           <Box maxW={{ base: "7xl", md: "lg", lg: "7xl", sm: "sm" }}>
             <HStack hidden={loaded}>
-              <Card w={"sm"} my={"5"} mx={"5"}>
-                <Box padding="6">
-                  <Skeleton height="150px" />
-                  <SkeletonText
-                    mt="4"
-                    noOfLines={10}
-                    spacing="4"
-                    skeletonHeight="2"
-                  />
-                </Box>
-              </Card>
+              <Hide above="sm">
+                <Card w={"xs"} my={"5"} mx={"5"}>
+                  <Box padding="6">
+                    <Skeleton height="150px" />
+                    <SkeletonText
+                      mt="4"
+                      noOfLines={10}
+                      spacing="4"
+                      skeletonHeight="2"
+                    />
+                  </Box>
+                </Card>
+              </Hide>
+
+              <Hide below="lg">
+                <Card w={"sm"} my={"5"} mx={"5"}>
+                  <Box padding="6">
+                    <Skeleton height="150px" />
+                    <SkeletonText
+                      mt="4"
+                      noOfLines={10}
+                      spacing="4"
+                      skeletonHeight="2"
+                    />
+                  </Box>
+                </Card>
+              </Hide>
 
               <Hide below="lg">
                 <Card w={"sm"} my={"5"} mx={"5"}>
@@ -147,7 +179,14 @@ export default function BlogList(/* img_source, title */) {
             </HStack>
             <HStack hidden={loading} mx={"10px"} my={"20px"} overflowX="auto">
               {posts.slice(0, 3).map((post) => (
-                <Card w="sm" key={post.id} flexShrink="0" my={"5"} mx={"5"} boxShadow={"md"}>
+                <Card
+                  w="sm"
+                  key={post.id}
+                  flexShrink="0"
+                  my={"5"}
+                  mx={"5"}
+                  boxShadow={"md"}
+                >
                   <Link
                     color={"brand.500"}
                     href={"/blog/[slug]"}
@@ -163,9 +202,8 @@ export default function BlogList(/* img_source, title */) {
                           {moment(post.created_at).format("Do MMMM YYYY")}
                         </Box>
                       </Stack>
-                  
                     </CardBody>
-                    
+
                     <CardFooter>
                       <Button variant={"solid"} w={"lg"} colorScheme="brand">
                         Lire

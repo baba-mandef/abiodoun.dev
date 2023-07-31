@@ -3,6 +3,7 @@ import { Poppins, Quicksand } from "next/font/google";
 
 const pop = Poppins({ weight: ['700'], subsets: ["latin"],preload: true, });
 const pop_s = Quicksand({ weight: ['600'], subsets: ["latin"],preload: true, });
+
 const theme =  extendTheme({
   colors:{
     brand : {
@@ -21,6 +22,17 @@ const theme =  extendTheme({
     heading: pop.style.fontFamily,
     body: pop_s.style.fontFamily,
   
+  },
+  styles: {
+    global: {
+      // styles for the `body`
+      body: {
+       
+        color: '#000a40',
+      },
+      // styles for the `a`
+     
+    },
   },
 /*   breakpoints: {
     sm: '320px',
