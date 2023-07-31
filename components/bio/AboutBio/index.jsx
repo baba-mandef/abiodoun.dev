@@ -19,14 +19,67 @@ import {
   useToast,
   Button,
 } from "@chakra-ui/react";
+import axios from "axios";
+import { useState } from "react";
 
 export default function AboutBio() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const toast = useToast();
+
+  const baseUrl = "https://baba-mandef.onrender.com/api/v1/";
+  const handleMessageSubmit = async () => {
+    try {
+      if (name && email && message != "") {
+        const FormData = require("form-data");
+        const form = new FormData();
+
+        form.append("sender_name", name);
+        form.append("sender_email", email);
+        form.append("body", message);
+
+        const response = await axios.post(`${baseUrl}message/new`, form);
+        console.log(response.data);
+        toast({
+          title: "Message envoyé",
+          description:
+            "Votre message à été envoyé avec succes. Merci !",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        onClose();
+      }
+      else{
+        toast({
+          title: "Erreur",
+          description:
+            "Tous les champs sont requis",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        })
+      }
+    } catch (e) {
+      console.error("Error", e);
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur s'est produite",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
+    }
+  };
+
   return (
     <>
       <Modal
         isOpen={isOpen}
-        size={{ base: "md", sm: "xs", md: "md", lg: "lg" }}
+        size={{ base: "xs", sm: "xs", md: "md", lg: "lg" }}
         onClose={onClose}
       >
         <ModalOverlay />
@@ -35,10 +88,10 @@ export default function AboutBio() {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>Full name</FormLabel>
+              <FormLabel>Nom</FormLabel>
               <Input
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Full name"
+                placeholder="Votre nom"
               />
             </FormControl>
 
@@ -47,27 +100,27 @@ export default function AboutBio() {
               <Input
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                placeholder="Your email address"
+                placeholder="Votre adresse électronique"
               />
               <FormHelperText color={"brand.500"}>
-                We will never share your email.
+                Nous ne divulgerons jamais votre adresse.
               </FormHelperText>
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel>Your comment</FormLabel>
+              <FormLabel>Message</FormLabel>
               <Textarea
-                onChange={(e) => setComment(e.target.value)}
-                placeholder="Write your comment here"
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Saisissez votre message ici"
               />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="brand" mr={3}>
-              Save
+            <Button colorScheme="brand" onClick={handleMessageSubmit} mr={3}>
+              Envoyer
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
+            <Button onClick={onClose}>Annuler</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
