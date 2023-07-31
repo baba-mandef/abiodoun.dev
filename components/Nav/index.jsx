@@ -29,7 +29,7 @@ export default function Nav() {
           bottom="0"
           pb="20px"
           centerContent
-          borderRadius="3xs"
+          borderRadius='md'
           px={"10px"}
         >
           <Box>
@@ -51,8 +51,8 @@ export default function Nav() {
                   style={currentRoute === '/' ? activeStyle : nonActiveStyle}
                 >
                   <Center>
-                    <Icon as={FaHome} color={"brand.500"} bo3xsize={15} mr="5px" />
-                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={"3xs"}>
+                    <Icon as={FaHome} color={"brand.500"} boxSize={15} mr="5px" />
+                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={{base: "xs",  sm: "xs", md: "3xs"}}>
                       Accueil
                     </Heading>
                   </Center>
@@ -67,10 +67,10 @@ export default function Nav() {
                     <Icon
                       as={FaUserCircle}
                       color={"brand.500"}
-                      bo3xsize={15}
+                      boxSize={15}
                       mr="5px"
                     />
-                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={"3xs"}>
+                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={{base: "xs",  sm: "xs", md: "3xs"}}>
                       Profil
                     </Heading>
                   </Center>
@@ -84,10 +84,10 @@ export default function Nav() {
                     <Icon
                       as={FaFileAlt}
                       color={"brand.500"}
-                      bo3xsize={15}
+                      boxSize={15}
                       mr="5px"
                     />
-                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={"3xs"}>
+                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={{base: "xs",  sm: "xs", md: "3xs"}}>
                       Blog
                     </Heading>
                   </Center>
@@ -101,10 +101,10 @@ export default function Nav() {
                     <Icon
                       as={FaBriefcase}
                       color={"brand.500"}
-                      bo3xsize={15}
+                      boxSize={15}
                       mr="5px"
                     />
-                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={"3xs"}>
+                    <Heading fontWeight={"bold"} color={"brandark.500"} as={"h6"} size={{base: "xs",  sm: "xs", md: "3xs"}}>
                       Projets
                     </Heading>
                   </Center>
