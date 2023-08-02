@@ -15,6 +15,7 @@ import Name from "@/components/Name";
 import AboutDesc from "@/components/descpription/AboutDesc";
 import AboutBio from "@/components/bio/AboutBio";
 import AboutStack from "@/components/AboutStack";
+import Path from "@/components/Path";
 
 export default function About() {
   return (
@@ -34,23 +35,21 @@ export default function About() {
 
             <GridItem>
               <Tabs colorScheme="black" color={"brand.500"} mt={"30px"}>
-               <Center>
-               <TabList>
-                  <Tab>A propos</Tab>
-                  {/* <Tab>Outils</Tab> */}
-                  <Tab>Parcours</Tab>
-                </TabList>
-               </Center>
+                <Center>
+                  <TabList>
+                    <Tab>A propos</Tab>
+                    {/* <Tab>Outils</Tab> */}
+                    <Tab>Parcours</Tab>
+                  </TabList>
+                </Center>
 
                 <TabPanels>
                   <TabPanel>
                     <AboutBio />
                   </TabPanel>
-                  {/* <TabPanel>
-                    <p>two!</p>
-                  </TabPanel> */}
+
                   <TabPanel>
-                    <p>three!</p>
+                    <Path />
                   </TabPanel>
                 </TabPanels>
               </Tabs>
