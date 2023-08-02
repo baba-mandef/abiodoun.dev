@@ -21,6 +21,31 @@ export default function HomeBio() {
           vie à mon immagination en écrivant des lignes de codes. Je construit
           des sites web, des applications et d'autres solutions numériques pour
           relever les défis du quotidien.
+          <br />
+          <br />
+          Habituellement, je porte le pseudo de Baba Mandef sur internet. Vous
+          pouvez me retrouver fréquemment sur des sites tels que   <Box
+              as="a"
+              href="https://github.com/baba-mandef"
+              target="_blank"
+              color={"brand.500"}
+              textDecoration={"underline"}
+            >Github</Box>,{" "}
+
+            <Box
+              as="a"
+              href="https://twitter.com/baba_mandef"
+              target="_blank"
+              color={"brand.500"}
+              textDecoration={"underline"}
+            >Twitter</Box> ou {" "}
+             <Box
+              as="a"
+              href="https://t.me/baba_mandef"
+              target="_blank"
+              color={"brand.500"}
+              textDecoration={"underline"}
+            >Telegram</Box>
         </Text>
       </Box>
     </Center>
