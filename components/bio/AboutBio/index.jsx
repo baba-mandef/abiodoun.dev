@@ -162,8 +162,7 @@ export default function AboutBio() {
             Mon objectif est de concevoir des expériences numériques agréables,
             en m'appuyant sur des systèmes solides et ergonomiques, afin
             d'améliorer la vie quotidienne des utilisateurs. Je privilégie une
-            approche itérative et créative pour optimiser mes solutions
-            numériques tout en résolvant efficacement les problèmes.
+            approche itérative et créative pour optimiser mes solutions.
             <br />
             <br />
             Je suis ouvert aux collaborations et à toutes autres opportunités
