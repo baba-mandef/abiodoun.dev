@@ -43,7 +43,7 @@ export default function Path() {
       title: "Licence en Systèmes Informatique et Logiciels",
       description: "Juin 2021",
     },
-    { title: "Stagiaire a CheapDeals", description: "Avril 2020 - Juin 2022" },
+    { title: "Stagiaire a CheapDeals", description: "Avril 2020 - Juin 2020" },
     { title: "Nasa Space App Challenge", description: "Octobre 2019" },
     { title: "Formation en UI/Ux design - Sewema", description: "Août 2019" },
     { title: "Google Hash code", description: "Février 2019" },
@@ -58,7 +58,7 @@ export default function Path() {
 
   return (
     <Center mt={"30px"}>
-      <Stepper index={activeStep} colorScheme="telegram" orientation="vertical" height="650px" gap="0">
+      <Stepper index={activeStep} colorScheme="telegram" orientation="vertical" height="700px" gap="0">
         {steps.map((step, index) => (
           <Step key={index}>
             <StepIndicator>
