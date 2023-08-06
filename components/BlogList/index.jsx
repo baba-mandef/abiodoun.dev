@@ -30,7 +30,7 @@ export default function BlogList(/* img_source, title */) {
   const [loading, setLoading] = useState(true);
   const [loaded, setLoaded] = useState(false);
   const moment = require("moment");
-  const toast = useToast()
+  const toast = useToast();
 
   const fechtCategories = async () => {
     try {
@@ -39,7 +39,6 @@ export default function BlogList(/* img_source, title */) {
       setCategories(response.data);
     } catch (e) {
       console.error("Error", e);
-     
     }
   };
 
@@ -54,12 +53,11 @@ export default function BlogList(/* img_source, title */) {
       console.error("Error", e);
       toast({
         title: "Erreur",
-        description:
-          "Une erreur s'est produite lors du chargement des données",
+        description: "Une erreur s'est produite lors du chargement des données",
         status: "error",
         duration: 3000,
         isClosable: true,
-      })
+      });
     }
   };
   const fetchPosts = async () => {
@@ -75,12 +73,11 @@ export default function BlogList(/* img_source, title */) {
       console.error("Error", e);
       toast({
         title: "Erreur",
-        description:
-          "Une erreur s'est produite lors du chargement des données",
+        description: "Une erreur s'est produite lors du chargement des données",
         status: "error",
         duration: 3000,
         isClosable: true,
-      })
+      });
     }
   };
   const hanndleSelect = (event) => {
@@ -119,68 +116,24 @@ export default function BlogList(/* img_source, title */) {
         </Select>
       </Center>
       <Center>
-        <VStack>
-          <Box maxW={{ base: "7xl", md: "lg", lg: "7xl", sm: "sm" }}>
-            <HStack hidden={loaded}>
-              <Hide above="sm">
-                <Card w={"xs"} my={"5"} mx={"5"}>
-                  <Box padding="6">
-                    <Skeleton height="150px" />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={10}
-                      spacing="4"
-                      skeletonHeight="2"
-                    />
-                  </Box>
-                </Card>
-              </Hide>
-
-              <Hide below="lg">
-                <Card w={"sm"} my={"5"} mx={"5"}>
-                  <Box padding="6">
-                    <Skeleton height="150px" />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={10}
-                      spacing="4"
-                      skeletonHeight="2"
-                    />
-                  </Box>
-                </Card>
-              </Hide>
-
-              <Hide below="lg">
-                <Card w={"sm"} my={"5"} mx={"5"}>
-                  <Box padding="6">
-                    <Skeleton height="150px" />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={10}
-                      spacing="4"
-                      skeletonHeight="2"
-                    />
-                  </Box>
-                </Card>
-              </Hide>
-              <Hide below="lg">
-                <Card w={"sm"} my={"5"} mx={"5"}>
-                  <Box padding="6">
-                    <Skeleton height="150px" />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={10}
-                      spacing="4"
-                      skeletonHeight="2"
-                    />
-                  </Box>
-                </Card>
-              </Hide>
-            </HStack>
-            <HStack hidden={loading} mx={"10px"} my={"20px"} overflowX="auto">
-              {posts.slice(0, 3).map((post) => (
+       
+       
+          <Box maxW={{ base: "7xl", md: "xl", lg: "7xl", sm: "sm" }}>
+          <Card hidden={loaded} w={{base:"sm", lg:"sm", md:"xs", sm:"xs"}} my={"5"} mx={"5"}>
+          <Box padding="6">
+            <Skeleton height="150px" />
+            <SkeletonText
+              mt="4"
+              noOfLines={10}
+              spacing="4"
+              skeletonHeight="2"
+            />
+          </Box>
+        </Card>
+            <HStack mx={"7px"} my={"20px"} overflowX="auto" >
+              {posts.map((post) => (
                 <Card
-                  w="sm"
+                  w={{base:"sm", lg:"sm", md:"xs", sm:"xs"}}
                   key={post.id}
                   flexShrink="0"
                   my={"5"}
@@ -214,7 +167,7 @@ export default function BlogList(/* img_source, title */) {
               ))}
             </HStack>
           </Box>
-        </VStack>
+      
       </Center>
     </>
   );

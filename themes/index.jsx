@@ -34,13 +34,13 @@ const theme =  extendTheme({
      
     },
   },
-/*   breakpoints: {
+   breakpoints: {
     sm: '320px',
     md: '768px',
     lg: '1023px',
     xl: '1215px',
    
-  }, */
+  },
   shadows: {
   
     barShadow: "0px 4px 4px rgba(0, 0, 0, 0.5)",
