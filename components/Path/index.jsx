@@ -57,15 +57,15 @@ export default function Path() {
   });
 
   return (
-    <Center mt={"30px"}>
-      <Stepper index={activeStep} colorScheme="telegram" orientation="vertical" height="700px" gap="0">
+    <Center >
+      <Stepper mt={"30px"} index={activeStep} colorScheme="telegram" orientation="vertical" height="700px" gap="0">
         {steps.map((step, index) => (
           <Step key={index}>
             <StepIndicator>
               <StepStatus complete={"📍"} />
             </StepIndicator>
 
-            <Box flexShrink="0">
+            <Box >
               <StepTitle>{step.title}</StepTitle>
               <StepDescription>{step.description}</StepDescription>
             </Box>
