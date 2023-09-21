@@ -29,7 +29,7 @@ export default function AboutBio() {
   const [message, setMessage] = useState("");
   const toast = useToast();
 
-  const baseUrl = "https://baba-mandef.onrender.com/api/v1/";
+  const baseUrl = "https://api.abiodoun.dev/api/v1/";
   const handleMessageSubmit = async () => {
     try {
       if (name && email && message != "") {

@@ -22,7 +22,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const baseUrl = "https://baba-mandef.onrender.com/api/v1/";
+const baseUrl = "https://api.abiodoun.dev/api/v1/";
 export default function BlogList(/* img_source, title */) {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("latest");
