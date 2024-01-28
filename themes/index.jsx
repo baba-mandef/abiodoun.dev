@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 import { Poppins, Quicksand } from "next/font/google";
 
 const pop = Poppins({ weight: ['700'], subsets: ["latin"],preload: true, });
-const pop_s = Quicksand({ weight: ['600'], subsets: ["latin"],preload: true, });
+const pop_s = Quicksand({ weight: ['700'], subsets: ["latin"],preload: true, });
 
 const theme =  extendTheme({
   colors:{
@@ -16,6 +16,9 @@ const theme =  extendTheme({
     },
     brandark:{
       500 : "#000a40"
+    },
+    brandy:{
+      500 : "#2babe2"
     }
   },
     fonts: {
