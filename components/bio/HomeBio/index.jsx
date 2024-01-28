@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Box, Center, Text } from "@chakra-ui/react";
+import { Space_Mono } from "next/font/google";
 
 export default function HomeBio() {
   return (
@@ -18,12 +19,13 @@ export default function HomeBio() {
             Abiodoun Paraïso
           </Box>
           . Passionné de programmation et de technologie J'aime créer et donner
-          vie à mon immagination en écrivant des lignes de codes. Je construit
-          des sites web, des applications et d'autres solutions numériques pour
-          relever les défis du quotidien.
+          vie à mon immagination en écrivant des lignes de codes 👨🏾‍💻. Je construit
+          des sites web, des applications et d'autres solutions technologiques pour
+          relever les défis du quotidien. Je m'entraîne actuellement pour
+          acquérir des compétences solides en mécatronique 🚀.
           <br />
           <br />
-          Habituellement, je porte le pseudo de Baba Mandef sur internet. Vous
+          Habituellement, je porte le pseudo de <Box as="span" color={"brand.500"}>Baba Mandef</Box> sur internet 🌐. Vous
           pouvez me retrouver fréquemment sur des sites tels que   <Box
               as="a"
               href="https://github.com/baba-mandef"
