@@ -44,8 +44,7 @@ export default function AboutBio() {
         console.log(response.data);
         toast({
           title: "Message envoyé",
-          description:
-            "Votre message à été envoyé avec succes. Merci !",
+          description: "Votre message à été envoyé avec succes. Merci !",
           status: "success",
           duration: 3000,
           isClosable: true,
@@ -139,7 +138,7 @@ export default function AboutBio() {
             <Box color="brand.500" as="span">
               Abiodoun Paraïso
             </Box>
-            , un développeur de logiciels basé au Bénin. Je travaille
+            , un développeur de logiciels basé au Bénin 🇧🇯. Je travaille
             principalement sur des projets web, mais je m'implique également
             dans la création de solutions applicatives multiplateformes et dans
             la contribution à des projets{" "}
@@ -162,10 +161,10 @@ export default function AboutBio() {
             Mon objectif est de concevoir des expériences numériques agréables,
             en m'appuyant sur des systèmes solides et ergonomiques, afin
             d'améliorer la vie quotidienne des utilisateurs. Je privilégie une
-            approche itérative et créative pour optimiser mes solutions.
+            approche itérative et créative 💡 pour optimiser ⚙️ mes solutions.
             <br />
             <br />
-            Je suis ouvert aux collaborations et à toutes autres opportunités
+            Je suis ouvert aux collaborations🤝🏾 et à toutes autres opportunités
             professionnelles. Si vous avez des questions, des suggestions ou
             simplement envie de discuter, n'hésitez pas à me{" "}
             <Box
@@ -174,8 +173,9 @@ export default function AboutBio() {
               as="button"
               textDecoration={"underline"}
             >
-              laisser un message
+              laisser un message 
             </Box>
+            ✉️
             .
           </Text>
         </Box>
