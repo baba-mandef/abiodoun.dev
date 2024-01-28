@@ -5,9 +5,9 @@ export default function HomeDesc() {
     <Center>
       <Box>
         <Heading as={"h6"} size={{base:"sm", md:"md", lg:"md" }} color={"brandark.500"} fontWeight={"bold"}>
-          Imagination,{" "}
+           Innover pour servir {" "}
           <Box color="brand.500" as="span">
-            Beyond comprehension
+            l'Humanité
           </Box>
         </Heading>
       </Box>
