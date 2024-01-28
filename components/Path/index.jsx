@@ -17,43 +17,42 @@ import { useEffect } from "react";
 
 export default function Path() {
   const steps = [
-    { title: "Développeur web à Unicore", description: "Depuis Mai 2023" },
+    { title: "Développeur web à Quatro", description: "Mai 2023 - Décembre 2023" },
+
     {
-      title: "Développeur web en freelance",
-      description: "Depuis decembre 2021",
-    },
-    {
-      title: "Développeur web à Wabo",
-      description: "Depuis Octobre 2021",
-    },
-    {
-      title: "Chef technique à Olanike Fondation",
-      description: "Depuis Octobre 2020",
-    },
-    {
-      title: "Formateur en Développement web à E4africa",
+      title: "Formateur en Développement web - E4africa",
       description: "Mars 2023 - Mai 2023",
     },
     {
-      title: "Développeur et Designer à Izicone",
-      description: "Juillet 2022 - Février 2023",
+      title: "Developpeur web Frontend - Izicone Sarl",
+      description: "Juillet 2022 - Janvier 2023",
     },
-    { title: "Stagiaire a LiftStore", description: "Avril 2022 - Juin 2022" },
+    { title: "Developpeur Web (stage) - LiftStore",
+      description: "Avril 2022 - Juin 2022"
+    },
     {
       title: "Licence en Systèmes Informatique et Logiciels",
       description: "Juin 2021",
     },
-    { title: "Stagiaire a CheapDeals", description: "Avril 2020 - Juin 2020" },
-    { title: "Nasa Space App Challenge", description: "Octobre 2019" },
+    {
+      title: "Chef technique - Olanike Fondation",
+      description: "Depuis Octobre 2020",
+    },
+    {
+      title: "Dévéloppeur web - Bouqinez Bénin",
+      description: "Septembre 2020 - Octobre 2020",
+    },
+    { title: "Développeur web fullstack (Stage) - Chipdeals", description: "Mars 2020 - Mai 2020" },
+    { title: "Nasa Space App Challenge (Hackaton)", description: "Octobre 2019" },
     { title: "Formation en UI/Ux design - Sewema", description: "Août 2019" },
-    { title: "Google Hash code", description: "Février 2019" },
+    { title: "Google Hash code (Hackaton)", description: "Février 2019" },
     { title: '"Hello World"', description: " Janvier 2016" },
   ];
 
   const { activeStep, setActiveStep } = useSteps();
 
   useEffect(() => {
-    setActiveStep(13);
+    setActiveStep(12);
   });
 
   return (
