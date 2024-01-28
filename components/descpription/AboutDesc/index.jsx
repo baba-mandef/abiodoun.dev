@@ -4,12 +4,12 @@ export default function AboutDesc() {
   return (
     <Center>
       <Box>
-        <Text fontSize={{base:"xs", md: "md", lg:"md"}} fontWeight={"extrabold"} color={"brandark.500"} >
-          Tech enthusiast{" "}
+        <Text fontSize={{base:"sm", md: "md", lg:"md"}} fontWeight={"bold"} color={"brandark.500"} >
+          Technologies 🛠️{" "}
           <Box color="brand.500" as="span">
-            - Software engineer -
+            - Afrique -
           </Box>
-          {" "}Nature Lover
+          {" "}Innovation 🚀
         </Text>
       </Box>
     </Center>
