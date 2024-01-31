@@ -14,7 +14,7 @@ import Logo from "@/components/Logo";
 import Name from "@/components/Name";
 import AboutDesc from "@/components/descpription/AboutDesc";
 import AboutBio from "@/components/bio/AboutBio";
-import AboutStack from "@/components/AboutStack";
+
 import Path from "@/components/Path";
 
 export default function About() {
