@@ -7,7 +7,7 @@ export default function AboutDesc() {
         <Text fontSize={{base:"sm", md: "md", lg:"md"}} fontWeight={"bold"} color={"brandark.500"} >
           Technologies 🛠️{" "}
           <Box color="brand.500" as="span">
-            - Afrique -
+            - Afrique ☥  -
           </Box>
           {" "}Innovation 🚀
         </Text>
