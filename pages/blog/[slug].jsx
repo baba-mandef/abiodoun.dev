@@ -35,8 +35,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 var moment = require("moment");
-import 'moment/locale/fr';
-moment.locale('fr');
+import "moment/locale/fr";
+moment.locale("fr");
 
 const baseUrl = "https://api.abiodoun.dev/api/v1/";
 
@@ -54,16 +54,15 @@ export default function Post() {
 
   const handleCommentSubmit = async () => {
     try {
-
-      if(name && email && comment !=""){
+      if (name && email && comment != "") {
         const FormData = require("form-data");
         const form = new FormData();
-  
+
         form.append("author_name", name);
         form.append("author_mail", email);
         form.append("body", comment);
         form.append("post", post.id);
-  
+
         const response = await axios.post(`${baseUrl}blog/comment`, form);
         console.log(response.data);
         fetchComments();
@@ -76,29 +75,24 @@ export default function Post() {
           isClosable: true,
         });
         onClose();
-      }
-      else{
+      } else {
         toast({
           title: "Erreur",
-          description:
-            "Tous les champs sont requis",
+          description: "Tous les champs sont requis",
           status: "error",
           duration: 3000,
           isClosable: true,
         });
       }
-
-   
     } catch (e) {
       console.error("Error", e);
       toast({
         title: "Erreur",
-        description:
-          "Une erreur s'est produite",
+        description: "Une erreur s'est produite",
         status: "error",
         duration: 3000,
         isClosable: true,
-      })
+      });
     }
   };
 
@@ -113,12 +107,11 @@ export default function Post() {
       console.error("Error", e);
       toast({
         title: "Erreur",
-        description:
-          "Une erreur s'est produite lors du chargement des données",
+        description: "Une erreur s'est produite lors du chargement des données",
         status: "error",
         duration: 3000,
         isClosable: true,
-      })
+      });
     }
   };
 
@@ -134,15 +127,14 @@ export default function Post() {
       setLoaded(true);
     } catch (e) {
       console.error("Error", e);
-     
+
       toast({
         title: "Erreur",
-        description:
-          "Une erreur s'est produite lors du chargement des données",
+        description: "Une erreur s'est produite lors du chargement des données",
         status: "error",
         duration: 3000,
         isClosable: true,
-      })
+      });
     }
   };
   const handleMarkup = (html) => {
@@ -173,7 +165,9 @@ export default function Post() {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader color={"brandark.500"}>Ajouter un commentaire</ModalHeader>
+          <ModalHeader color={"brandark.500"}>
+            Ajouter un commentaire
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
@@ -191,7 +185,6 @@ export default function Post() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                
                 placeholder="Votre adresse électronique"
               />
               <FormHelperText color={"brand.500"}>
@@ -200,7 +193,7 @@ export default function Post() {
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel color={"brandark.500"} >Commentaire</FormLabel>
+              <FormLabel color={"brandark.500"}>Commentaire</FormLabel>
               <Textarea
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
@@ -213,7 +206,7 @@ export default function Post() {
             <Button colorScheme="brand" onClick={handleCommentSubmit} mr={3}>
               Envoyer
             </Button>
-            <Button  onClick={onClose}>Annuler</Button>
+            <Button onClick={onClose}>Annuler</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -254,14 +247,13 @@ export default function Post() {
             </Box>
           </GridItem>
 
-            {/* 
+          {/* 
 
         ****************************************
         ************** POST CONTENT ************
         ****************************************
       
           */}
-      
 
           <GridItem hidden={loading}>
             <Center>
@@ -287,14 +279,26 @@ export default function Post() {
                       </Text>
                     </GridItem>
                     <GridItem mt={"30px"}>
-                      <Heading as={"h3"} color={"brandark.500"} size={"lg"} textAlign={"center"}>{String(post.title).toUpperCase()}</Heading>
+                      <Heading
+                        as={"h3"}
+                        color={"brandark.500"}
+                        size={"lg"}
+                        textAlign={"center"}
+                      >
+                        {String(post.title).toUpperCase()}
+                      </Heading>
                     </GridItem>
                     <GridItem mt={"20px"}>
-                      <Image src={post.banner} boxShadow={"md"} alt="banner" borderRadius="lg" />
+                      <Image
+                        src={post.banner}
+                        boxShadow={"md"}
+                        alt="banner"
+                        borderRadius="lg"
+                      />
                     </GridItem>
                     <GridItem mt={"30px"}>
                       <Box
-                       color={"brandark.500"}
+                        color={"brandark.500"}
                         fontSize={{
                           base: "16px",
                           md: "16px",
@@ -336,17 +340,17 @@ export default function Post() {
                               colorScheme="brand"
                               variant="solid"
                             >
-                             Nouveau
+                              Nouveau
                             </Button>
                           </Box>
                         </HStack>
                       </Center>
 
                       <Divider bg="black" w="100%" h="1px" mb={"30px"} />
-{/* 
-                      ****************************************
-                      ************** COMMENT LIST ************
-                      **************************************** */}
+                      {/*
+                       ****************************************
+                       ************** COMMENT LIST ************
+                       **************************************** */}
 
                       {comments.map((_comment) => (
                         <HStack key={_comment.id} mb={"30px"}>
@@ -373,18 +377,18 @@ export default function Post() {
                               {_comment.author_name}
                             </Heading>
 
-                            <Text  color={"brandark.500"}>{_comment.body}</Text>
-                          
+                            <Text color={"brandark.500"}>{_comment.body}</Text>
+
                             <Heading
                               textColor={"brandark.500"}
                               as="h4"
                               size="xs"
                               fontWeight={"bold"}
                               pb={"5px"}
-                              mt={'15px'}
+                              mt={"15px"}
                               textAlign={"right"}
                             >
-                             {moment(_comment.created_at).fromNow()} 
+                              {moment(_comment.created_at).fromNow()}
                             </Heading>
                           </Box>
                         </HStack>
