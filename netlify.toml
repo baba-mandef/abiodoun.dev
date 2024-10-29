@@ -10,6 +10,10 @@
   status = 200
   force = true
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+
 
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
