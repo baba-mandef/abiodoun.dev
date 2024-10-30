@@ -1,16 +1,15 @@
-import { Image } from "@chakra-ui/react"
-
+import Image from "next/image";
 
 export default function Animate() {
-  return (
 
+  return (
     <Image
     src="img/2l.png"
-    boxSize="180px"
-    
-    fit="contain"
+    width={170}
+    height={170}
     alt="Abiodoun"
-  />
+    />
+
   
   );
 }
