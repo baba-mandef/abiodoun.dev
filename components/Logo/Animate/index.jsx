@@ -2,6 +2,7 @@ import { Image } from "@chakra-ui/react"
 
 
 export default function Animate() {
+
   return (
 
     <Image
