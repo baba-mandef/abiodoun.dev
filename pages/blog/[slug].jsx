@@ -38,7 +38,7 @@ var moment = require("moment");
 import "moment/locale/fr";
 moment.locale("fr");
 
-const baseUrl = "https://api.abiodoun.dev/api/v1/";
+const baseUrl = "https://abiodoun.rezolusoft.com/api/v1/";
 
 export default function Post() {
   const router = useRouter();
