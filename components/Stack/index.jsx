@@ -1,4 +1,5 @@
-import { SimpleGrid, Box, Center, Image, } from "@chakra-ui/react";
+import { SimpleGrid, Box, Center, } from "@chakra-ui/react";
+// import Image from 'next/image'
 
 export default function Stack() {
   const styles = {
@@ -13,25 +14,25 @@ export default function Stack() {
       <Center>
 
     
-      <SimpleGrid columns={{ base: "7", md: "7", lg: "7", sm: "7" }} spacing={{ base: "10", md: "10", lg: "10", sm: "7" }} pt="10px">
+      <SimpleGrid columns={{ base: "7", md: "7", lg: "7", sm: "4" }} spacing={{ base: "10", md: "10", lg: "10", sm: "4" }} pt="10px">
           
             <Box  boxSize={"50px"} style={styles}>
               <Center>
-                <Image src="img/python.png"   alt="python"></Image>
+                <img src="img/python.png"   alt="python" />
               </Center>
             </Box>
          
        
             <Box boxSize={"50px"} style={styles}>
               <Center>
-                <Image src="img/php.png"   alt="php"></Image>
+                <img src="img/php.png"   alt="php" />
               </Center>
             </Box>
         
        
             <Box  boxSize={"50px"} style={styles}>
               <Center>
-                <Image src="img/javascript.png"   alt="javascript"></Image>
+                <img src="img/javascript.png"   alt="javascript " />
               </Center>
             </Box>
  
@@ -39,7 +40,7 @@ export default function Stack() {
     
             <Box boxSize={"50px"} style={styles}>
               <Center>
-                <Image src="img/kt.png"   alt="kotlin"></Image>
+                <img src="img/kt.png"   alt="kotlin" />
               </Center>
             </Box>
 
@@ -47,21 +48,21 @@ export default function Stack() {
         
             <Box boxSize={"50px"}  style={styles}>
               <Center>
-                <Image src="img/django.png"   alt="django"></Image>
+                <img src="img/django.png"   alt="django" />
               </Center>
             </Box>
        
 
             <Box boxSize={"50px"} style={styles}>
               <Center>
-                <Image src="img/react.png"   alt="react"></Image>
+                <img src="img/react.png"   alt="react" />
               </Center>
             </Box>
   
 
             <Box boxSize={"50px"}  style={styles}>
               <Center>
-                <Image src="img/docker.png"   alt="docker"></Image>
+                <img src="img/docker.png"   alt="docker"/>
               </Center>
             </Box>
        
