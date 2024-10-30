@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image, } from "@chakra-ui/react";
 
 export default function Animate() {
 
@@ -8,8 +8,6 @@ export default function Animate() {
     width={170}
     height={170}
     alt="Abiodoun"
-    />
-
-  
+    />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
   );
 }
