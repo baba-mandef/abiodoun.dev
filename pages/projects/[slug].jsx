@@ -26,7 +26,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 export default function ProjectDetails() {
-  const baseUrl = "https://api.abiodoun.dev/api/v1/";
+  const baseUrl = "https://abiodoun.rezolusoft.com/api/v1/";
   const router = useRouter();
 
   /* const [loading, setLoading] = useState(true);
