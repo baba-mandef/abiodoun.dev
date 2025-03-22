@@ -6,7 +6,7 @@ export default function Animate() {
   return (
 
     <Image
-    src="img/2l.png"
+    src="/img/2l.png"
     boxSize="180px"
     borderRadius="full"
     fit="contain"

@@ -99,75 +99,80 @@ export default function BlogList(/* img_source, title */) {
   return (
     <>
       <Center>
-        <Select
-          mt={"20px"}
-          variant={"unstyled"}
-          value={selectedCategory}
-          w={"max-content"}
-          color={"brand.500"}
-          onChange={hanndleSelect}
-        >
-          <option value="latest">récents</option>
-          {categories.map((category) => (
-            <option key={category.title} value={category.id}>
-              {category.title}
-            </option>
-          ))}
-        </Select>
+        <HStack>
+          <Text mt={"20px"}>Categorie : </Text>
+          <Select
+            mt={"20px"}
+            variant={"unstyled"}
+            value={selectedCategory}
+            w={"max-content"}
+            color={"brand.500"}
+            onChange={hanndleSelect}
+          >
+            <option value="latest">récents</option>
+            {categories.map((category) => (
+              <option key={category.title} value={category.id}>
+                {category.title}
+              </option>
+            ))}
+          </Select>
+        </HStack>
       </Center>
       <Center>
-       
-       
-          <Box maxW={{ base: "7xl", md: "xl", lg: "7xl", sm: "sm" }}>
-          <Card hidden={loaded} w={{base:"sm", lg:"sm", md:"xs", sm:"xs"}} my={"5"} mx={"5"}>
-          <Box padding="6">
-            <Skeleton height="150px" />
-            <SkeletonText
-              mt="4"
-              noOfLines={10}
-              spacing="4"
-              skeletonHeight="2"
-            />
-          </Box>
-        </Card>
-            <HStack mx={"7px"} my={"20px"} overflowX="auto" >
-              {posts.map((post) => (
-                <Card
-                  w={{base:"sm", lg:"sm", md:"xs", sm:"xs"}}
-                  key={post.id}
-                  flexShrink="0"
-                  my={"5"}
-                  mx={"5"}
-                  boxShadow={"md"}
+        <Box maxW={{ base: "7xl", md: "xl", lg: "7xl", sm: "sm" }}>
+          <Card
+            hidden={loaded}
+            w={{ base: "sm", lg: "sm", md: "xs", sm: "xs" }}
+            my={"5"}
+            mx={"5"}
+          >
+            <Box padding="6">
+              <Skeleton height="150px" />
+              <SkeletonText
+                mt="4"
+                noOfLines={10}
+                spacing="4"
+                skeletonHeight="2"
+              />
+            </Box>
+          </Card>
+          <HStack mx={"7px"} my={"20px"} overflowX="auto">
+            {posts.map((post) => (
+              <Card
+                w={{ base: "sm", lg: "sm", md: "xs", sm: "xs" }}
+                key={post.id}
+                flexShrink="0"
+                my={"5"}
+                mx={"5"}
+                boxShadow={"md"}
+              >
+                <Link
+                  color={"brand.500"}
+                  href={"/blog/[slug]"}
+                  as={`/blog/${post.slug}`}
                 >
-                  <Link
-                    color={"brand.500"}
-                    href={"/blog/[slug]"}
-                    as={`/blog/${post.slug}`}
-                  >
-                    <CardBody>
-                      <Image src={post.banner} alt="banner" borderRadius="lg" />
-                      <Stack mt="10" spacing="3">
-                        <Heading as={"h5"} size="sm" color={"brandark.500"}>
-                          {post.title.toUpperCase()}
-                        </Heading>
-                        <Box as={"p"} color={"brand.500"} fontWeight={"bold"}>
-                          {moment(post.created_at).format("Do MMMM YYYY")}
-                        </Box>
-                      </Stack>
-                    </CardBody>
+                  <CardBody>
+                    <Image src={post.banner} alt="banner" borderRadius="lg" />
+                    <Stack mt="10" spacing="3">
+                      <Heading as={"h5"} size="sm" color={"brandark.500"}>
+                        {post.title.toUpperCase()}
+                      </Heading>
+                      <Box as={"p"} color={"brand.500"} fontWeight={"bold"}>
+                        {moment(post.created_at).format("Do MMMM YYYY")}
+                      </Box>
+                    </Stack>
+                  </CardBody>
 
-                    <CardFooter>
-                      <Button variant={"solid"} w={"lg"} colorScheme="brand">
-                        Lire
-                      </Button>
-                    </CardFooter>
-                  </Link>
-                </Card>
-              ))}
-            </HStack>
-          </Box>
-      
+                  <CardFooter>
+                    <Button variant={"solid"} w={"lg"} colorScheme="brand">
+                      Lire
+                    </Button>
+                  </CardFooter>
+                </Link>
+              </Card>
+            ))}
+          </HStack>
+        </Box>
       </Center>
     </>
   );

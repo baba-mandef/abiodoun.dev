@@ -39,7 +39,7 @@ export default function About() {
                   <TabList>
                     <Tab>A propos</Tab>
                     {/* <Tab>Outils</Tab> */}
-                    <Tab>Parcours</Tab>
+                    <Tab>Parcours</Tab> 
                   </TabList>
                 </Center>
 
