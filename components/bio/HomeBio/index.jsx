@@ -18,11 +18,10 @@ export default function HomeBio() {
           <Box color="brand.500" as="span">
             Abiodoun Paraïso
           </Box>
-          . Passionné de programmation et de technologie J'aime créer et donner
+          .Passionné de programmation et de technologie J'aime créer et donner
           vie à mon immagination en écrivant des lignes de codes 👨🏾‍💻. Je construit
           des sites web, des applications et d'autres solutions technologiques pour
-          relever les défis du quotidien. Je m'entraîne actuellement pour
-          acquérir des compétences solides en mécatronique 🚀.
+          relever les défis du quotidien.
           <br />
           <br />
           Habituellement, je porte le pseudo de <Box as="span" color={"brand.500"}>Baba Mandef</Box> sur internet 🌐. Vous
