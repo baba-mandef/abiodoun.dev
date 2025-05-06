@@ -17,37 +17,40 @@ import { useEffect } from "react";
 
 export default function Path() {
   const steps = [
-  { title: "Développeur web  - Rezolusoft", description: "Février 2024 - maintenant" },
 
-    { title: "Développeur web Backend - Quatro", description: "Mai 2023 - Décembre 2023" },
+    
+    { title: "Développeur web  - Rezolusoft", description: "Février 2024 - maintenant" },
 
     {
-      title: "Formateur en Développement web - E4africa",
-      description: "Mars 2023 - Mai 2023",
+      title: "Formateur en Informatique – Enseignement supérieur",
+      description: "Depuis Mars 2023",
     },
+
+    { title: "Développeur web Backend - Quatro", description: "Janvier 2023 - Décembre 2023" },
+
     {
       title: "Developpeur web Frontend - Izicone Sarl",
       description: "Juillet 2022 - Janvier 2023",
     },
-    { title: "Developpeur Web (stage) - LiftStore",
-      description: "Avril 2022 - Juin 2022"
+    { title: "Developpeur Web - KASDIGIT",
+      description: "Avril 2022 - Juillet 2022"
     },
-    {
+    /*{
       title: "Licence en Systèmes Informatique et Logiciels",
       description: "Juin 2021",
-    },
+    }, */
     {
-      title: "Chef technique - Olanike Fondation",
+      title: "Responsable technique - Olanike ONG",
       description: "Depuis Octobre 2020",
     },
-    {
+    /* {
       title: "Dévéloppeur web - Bouqinez Bénin",
       description: "Septembre 2020 - Octobre 2020",
-    },
-    { title: "Développeur web fullstack (Stage) - Chipdeals", description: "Mars 2020 - Mai 2020" },
+    }, */
+    { title: "Développeur web fullstack (Stage) - Chipdeals", description: "Mars 2020 - Septembre 2020" },
     { title: "Nasa Space App Challenge (Hackaton)", description: "Octobre 2019" },
     { title: "Formation en UI/Ux design - Sewema", description: "Août 2019" },
-    { title: "Google Hash code (Hackaton)", description: "Février 2019" },
+    { title: "Google Hash code", description: "Février 2019" },
     { title: '"Hello World"', description: " Janvier 2016" },
   ];
 
