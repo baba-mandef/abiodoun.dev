@@ -18,6 +18,8 @@ import {
   Textarea,
   useToast,
   Button,
+  Menu,
+  Portal,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
@@ -29,7 +31,7 @@ export default function AboutBio() {
   const [message, setMessage] = useState("");
   const toast = useToast();
 
-  const baseUrl = "https://api.abiodoun.dev/api/v1/";
+  const baseUrl = "https://abiodoun.rezolusoft.com/api/v1/";
   const handleMessageSubmit = async () => {
     try {
       if (name && email && message != "") {
@@ -129,7 +131,7 @@ export default function AboutBio() {
           <Text
             align="justify"
             fontSize="16"
-            color={"brandark.500"}
+            color={"text"}
             my="10"
             mb="5"
             p="2"
@@ -138,10 +140,13 @@ export default function AboutBio() {
             <Box color="brand.500" as="span">
               Abiodoun Paraïso
             </Box>
-            , un développeur de logiciels basé au Bénin 🇧🇯. Je travaille
-            principalement sur des projets web, mais je m'implique également
-            dans la création de solutions applicatives multiplateformes et dans
-            la contribution à des projets{" "}
+            , développeur de logiciels basé au Bénin 🇧🇯. Je travaille
+            principalement sur des projets web et des solutions applicatives multiplateformes.
+            Je partage mes connaissances et expériences en tant que professeur d'informatique au supérieur. 
+            <br />
+            <br />
+            Au fil du temps, j'ai acquis de nombreuses compétences en explorant divers langages, 
+            frameworks et outils, notamment à travers mes contributions à des projets {" "}
             <Box
               as="a"
               href="https://github.com/baba-mandef"
@@ -149,24 +154,17 @@ export default function AboutBio() {
               color={"brand.500"}
               textDecoration={"underline"}
             >
-              open source sur GitHub
+              open source sur GitHub.
             </Box>
-            .
-            <br />
-            <br />
-            Au fil du temps, j'ai acquis de nombreuses compétences en utilisant
-            diverses techniques, frameworks, outils et langages de
-            programmation.
             <br /> <br />
             Mon objectif est de concevoir des expériences numériques agréables,
             en m'appuyant sur des systèmes solides et ergonomiques, afin
-            d'améliorer la vie quotidienne des utilisateurs. Je privilégie une
-            approche itérative et créative 💡 pour optimiser ⚙️ mes solutions.
+            de résoudre les problème du quotidien. Je privilégie une
+            approche  🔄itérative et 💡créative  pour optimiser ⚙️ mes solutions.
             <br />
             <br />
-            Je suis ouvert aux collaborations🤝🏾 et à toutes autres opportunités
-            professionnelles. Si vous avez des questions, des suggestions ou
-            simplement envie de discuter, n'hésitez pas à me{" "}
+            Ouvert aux collaborations🤝🏾 et à toutes autres opportunités
+            professionnelles. Pour toute questions ou suggestions, n'hésitez pas à me{" "}
             <Box
               color={"brand.500"}
               onClick={onOpen}
