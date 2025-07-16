@@ -20,6 +20,7 @@ import {
   Button,
   Menu,
   Portal,
+  useColorModeValue
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
@@ -118,7 +119,7 @@ export default function AboutBio() {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="brand" onClick={handleMessageSubmit} mr={3}>
+            <Button colorScheme="brand" bg={useColorModeValue('brand.500', 'brand.500')} onClick={handleMessageSubmit} mr={3}>
               Envoyer
             </Button>
             <Button onClick={onClose}>Annuler</Button>
@@ -140,9 +141,9 @@ export default function AboutBio() {
             <Box color="brand.500" as="span">
               Abiodoun Paraïso
             </Box>
-            , développeur de logiciels basé au Bénin 🇧🇯. Je travaille
+            , développeur de logiciels basé au Bénin🇧🇯. Je travaille
             principalement sur des projets web et des solutions applicatives multiplateformes.
-            Je partage mes connaissances et expériences en tant que professeur d'informatique au supérieur. 
+            Je partage également mes connaissances et expériences en tant que professeur d'informatique au supérieur. 
             <br />
             <br />
             Au fil du temps, j'ai acquis de nombreuses compétences en explorant divers langages, 
@@ -173,8 +174,7 @@ export default function AboutBio() {
             >
               laisser un message 
             </Box>
-            ✉️
-            .
+            ✉️.
           </Text>
         </Box>
       </Center>
