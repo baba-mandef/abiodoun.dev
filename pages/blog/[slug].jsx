@@ -28,6 +28,7 @@ import {
   FormHelperText,
   Textarea,
   useToast,
+  useColorModeValue
 } from "@chakra-ui/react";
 import Logo from "@/components/Logo";
 import Name from "@/components/Name";
@@ -41,6 +42,22 @@ moment.locale("fr");
 const baseUrl = "https://abiodoun.rezolusoft.com/api/v1/";
 
 export default function Post() {
+
+  const commentBg = useColorModeValue('#f0f0f0', 'rgba(255, 255, 255, 0.08)');
+  const commentBorder = useColorModeValue(
+    '1px solid rgba(0, 0, 0, 0.05)',
+    '1px solid rgba(255, 255, 255, 0.1)'
+  );
+
+  const modalBg = useColorModeValue('white', 'brand_second.500');
+  const modalText = useColorModeValue('brand_second.500', 'whiteAlpha.900');
+  const inputBg = useColorModeValue('white', 'rgb(1, 26, 90)');
+  const inputBorder = useColorModeValue('gray.200', 'gray.600');
+
+  const textColor = useColorModeValue('brand_second.500', 'whiteAlpha.900');
+  const dateColor = useColorModeValue('brand.500', 'brand.200');
+  const dividerColor = useColorModeValue('black', 'whiteAlpha.300');
+
   const router = useRouter();
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
@@ -158,21 +175,26 @@ export default function Post() {
         ****************************************
       
       */}
-      <Modal
+            
+             <Modal
         isOpen={isOpen}
         size={{ base: "md", sm: "xs", md: "md", lg: "lg" }}
         onClose={onClose}
       >
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader color={"brandark.500"}>
+        <ModalContent bg={modalBg}>
+          <ModalHeader color={modalText}>
             Ajouter un commentaire
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel color={"brandark.500"}>Nom</FormLabel>
+              <FormLabel color={modalText}>Nom</FormLabel>
               <Input
+                bg={inputBg}
+                borderColor={inputBorder}
+                _hover={{ borderColor: 'brand.500' }}
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px brand.500' }}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Votre nom complet"
@@ -180,36 +202,57 @@ export default function Post() {
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel color={"brandark.500"}>Email</FormLabel>
+              <FormLabel color={modalText}>Email</FormLabel>
               <Input
+                bg={inputBg}
+                borderColor={inputBorder}
+                _hover={{ borderColor: 'brand.500' }}
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px brand.500' }}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="Votre adresse électronique"
               />
-              <FormHelperText color={"brand.500"}>
+              <FormHelperText color={'brand.500'}>
                 Nous ne divulgerons jamais votre adresse.
               </FormHelperText>
             </FormControl>
 
             <FormControl mt={4}>
-              <FormLabel color={"brandark.500"}>Commentaire</FormLabel>
+              <FormLabel color={modalText}>Commentaire</FormLabel>
               <Textarea
+                bg={inputBg}
+                borderColor={inputBorder}
+                _hover={{ borderColor: 'brand.500' }}
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px brand.500' }}
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Ecrivez votre commentaire ici"
+                placeholder="Écrivez votre commentaire ici"
+                rows={5}
               />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="brand" onClick={handleCommentSubmit} mr={3}>
+            <Button 
+              colorScheme="brand" 
+              onClick={handleCommentSubmit} 
+              mr={3}
+              bg={useColorModeValue('brand.500', 'brand.200')}
+            >
               Envoyer
             </Button>
-            <Button onClick={onClose}>Annuler</Button>
+            <Button 
+              onClick={onClose}
+              variant="ghost"
+              color={modalText}
+            >
+              Annuler
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
+
 
       {/* 
 
@@ -281,7 +324,7 @@ export default function Post() {
                     <GridItem mt={"30px"}>
                       <Heading
                         as={"h3"}
-                        color={"brandark.500"}
+                        color={"text"}
                         size={"lg"}
                         textAlign={"center"}
                       >
@@ -298,7 +341,7 @@ export default function Post() {
                     </GridItem>
                     <GridItem mt={"30px"}>
                       <Box
-                        color={"brandark.500"}
+                        color={"text"}
                         fontSize={{
                           base: "16px",
                           md: "16px",
@@ -319,81 +362,76 @@ export default function Post() {
                       ></Box>
                     </GridItem>
 
-                    <GridItem mt={"30px"}>
-                      <Center>
-                        <HStack>
-                          <Box>
+                     <GridItem mt={"30px"}>
+                        <Center>
+                          <HStack>
                             <Heading
                               as="h3"
                               textAlign={"center"}
                               size="lg"
                               mb={"10px"}
-                              color={"brandark.500"}
+                              color={textColor}
                             >
                               Commentaires
                             </Heading>
-                          </Box>
-                          <Box>
                             <Button
                               onClick={onOpen}
                               mb={"10px"}
-                              colorScheme="brand"
+                              
                               variant="solid"
+                              bg={useColorModeValue('brand.500', 'brand.500')}
                             >
                               Nouveau
                             </Button>
-                          </Box>
-                        </HStack>
-                      </Center>
+                          </HStack>
+                        </Center>
 
-                      <Divider bg="black" w="100%" h="1px" mb={"30px"} />
-                      {/*
-                       ****************************************
-                       ************** COMMENT LIST ************
-                       **************************************** */}
+                        <Divider bg={dividerColor} w="100%" h="1px" mb={"30px"} />
 
-                      {comments.map((_comment) => (
-                        <HStack key={_comment.id} mb={"30px"}>
-                          <Box alignSelf={"start"}>
-                            <Avatar
+                        {comments.map((_comment) => (
+                          <HStack key={_comment.id} mb={"30px"} align="flex-start">
+                            <Avatar 
                               name={_comment.author_name}
-                              /* O */
-                            ></Avatar>
-                          </Box>
-                          <Box
-                            /*  border={"1px"} */
-                            p={"10px"}
-                            borderRadius={"10px"}
-                            w={"100%"}
-                            bgColor={"#e6e6e6"}
-                          >
-                            <Heading
-                              textColor={"brand.500"}
-                              as="h4"
                               size="sm"
-                              fontWeight={"bold"}
-                              pb={"5px"}
+                              mt={1}
+                            />
+                            <Box
+                              p={4}
+                              borderRadius={"lg"}
+                              w={"100%"}
+                              bg={commentBg}
+                              border={commentBorder}
+                              boxShadow="sm"
+                              transition="all 0.2s"
+                              _hover={{
+                                transform: 'translateY(-2px)',
+                                boxShadow: 'md'
+                              }}
                             >
-                              {_comment.author_name}
-                            </Heading>
-
-                            <Text color={"brandark.500"}>{_comment.body}</Text>
-
-                            <Heading
-                              textColor={"brandark.500"}
-                              as="h4"
-                              size="xs"
-                              fontWeight={"bold"}
-                              pb={"5px"}
-                              mt={"15px"}
-                              textAlign={"right"}
-                            >
-                              {moment(_comment.created_at).fromNow()}
-                            </Heading>
-                          </Box>
-                        </HStack>
-                      ))}
-                    </GridItem>
+                              <Heading
+                                color={dateColor}
+                                as="h4"
+                                size="sm"
+                                fontWeight={"bold"}
+                                pb={2}
+                              >
+                                {_comment.author_name}
+                              </Heading>
+                              <Text color={textColor}>{_comment.body}</Text>
+                              <Text
+                                color={dateColor}
+                                fontSize="xs"
+                                fontWeight={"bold"}
+                                mt={3}
+                                textAlign={"right"}
+                              >
+                                {moment(_comment.created_at).fromNow()}
+                              </Text>
+                            </Box>
+                          </HStack>
+                        ))}
+                      </GridItem>
+                                    
                   </Grid>
                 </Center>
               </Container>
