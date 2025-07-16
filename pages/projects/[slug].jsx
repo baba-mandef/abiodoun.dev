@@ -16,11 +16,14 @@ import {
   TagLabel,
   Flex,
   Spacer,
+  useColorModeValue,
+  Divider,
+  VStack,
+  Link,
 } from "@chakra-ui/react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import Logo from "@/components/Logo";
 import Name from "@/components/Name";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -28,26 +31,24 @@ import axios from "axios";
 export default function ProjectDetails() {
   const baseUrl = "https://abiodoun.rezolusoft.com/api/v1/";
   const router = useRouter();
-
-  /* const [loading, setLoading] = useState(true);
-  const [loaded, setLoaded] = useState(false); */
-  const [project, setProject] = useState(true);
+  const [project, setProject] = useState({});
   const [stack, setStack] = useState([]);
-
   const toast = useToast();
+
+  // Couleurs adaptatives
+  const cardBg = useColorModeValue('rgba(255, 255, 255, 0.7)', 'rgba(0, 10, 64, 0.5)');
+  const cardBorder = useColorModeValue('1px solid rgba(0, 0, 0, 0.05)', '1px solid rgba(255, 255, 255, 0.1)');
+  const textColor = useColorModeValue('brand_second.500', 'whiteAlpha.900');
+  const accentColor = useColorModeValue('brand.500', 'brand.200');
+  const dividerColor = useColorModeValue('brand.500', 'brand.200');
 
   const fetchProjectDetails = async () => {
     try {
-      const response = await axios.get(
-        `${baseUrl}work?slug=${router.query.slug}`
-      );
-
-      console.log(response.data);
+      const response = await axios.get(`${baseUrl}work?slug=${router.query.slug}`);
       setProject(response.data[0]);
       setStack(response.data[0].stack.split(","));
     } catch (e) {
       console.error("Error", e);
-
       toast({
         title: "Erreur",
         description: "Une erreur s'est produite lors du chargement des données",
@@ -61,6 +62,7 @@ export default function ProjectDetails() {
   const handleMarkup = (html) => {
     return { __html: html };
   };
+
   useEffect(() => {
     if (router.isReady) {
       fetchProjectDetails();
@@ -68,164 +70,94 @@ export default function ProjectDetails() {
   }, [router.isReady]);
 
   return (
-    <>
-      <>
-        <Center mb="80px" mt="20">
-          <Grid>
-            <GridItem>
+    <Box minH="100vh">
+      <Center py={10}>
+        <Grid maxW={{ base: "80%", md: "80%", lg: "80%",  }}>
+          <GridItem mb={8}>
+            <VStack spacing={4}>
               <Logo />
-            </GridItem>
-            <GridItem>
               <Name />
-            </GridItem>
-            <GridItem>
-              <Center>
-                <Heading
-                  fontSize={{
-                    base: "20x",
-                    md: "20px",
-                    lg: "20px",
-                    sm: "20px",
-                  }}
-                  as={"h5"}
-                  size={"md"}
-                  fontWeight={"bold"}
-                  fontStyle={"bold"}
-                  color={"brand.500"}
-                  textAlign={"center"}
-                  m="5"
-                >
-                  {project.name}
-                </Heading>
-              </Center>
-            </GridItem>
+            </VStack>
+          </GridItem>
 
-            <GridItem pt={8}>
-              <Wrap justify="center" spacing="20px">
-                <WrapItem
-                  maxW={{ base: "400", md: "400", lg: "400", sm: "300" }}
-                >
+          <GridItem>
+            <Box 
+              bg={cardBg}
+              backdropFilter="blur(10px)"
+              border={cardBorder}
+              borderRadius="xl"
+              p={6}
+              boxShadow="lg"
+              mb={8}
+            >
+              <Heading
+                as="h2"
+                size="lg"
+                fontWeight="bold"
+                color={accentColor}
+                textAlign="center"
+                mb={6}
+              >
+                {project.name}
+              </Heading>
+
+              <Wrap justify="center" spacing={8} align="center">
+                <WrapItem flex="1" minW={{ base: "100%", md: "400px" }}>
                   <Image
                     src={project.banner}
-                    boxShadow={"lg"}
-                    alt="banner"
+                    alt="Project banner"
                     borderRadius="lg"
+                    boxShadow="xl"
+                    w="full"
+                    objectFit="cover"
                   />
                 </WrapItem>
 
-                {/*  <WrapItem ml={5} mr={5}>
-                   
-                  </WrapItem>
- */}
-                <WrapItem>
-                  <Grid pt={{ base: "0", md: "0", lg: "0", sm: "5" }}>
-                    {/* <GridItem mb={3}>
-                      <Heading
-                        color={"brand.500"}
-                        as={"h5"}
-                        size={"sm"}
-                        textAlign={{
-                          base: "left",
-                          md: "left",
-                          lg: "left",
-                          sm: "center",
-                        }}
-                      >
-                        {project.name}
-                      </Heading>
-                    </GridItem> */}
-                    <GridItem>
-                      <Box
-                        color={"brandark.500"}
-                        fontSize={{
-                          base: "16px",
-                          md: "16px",
-                          lg: "16px",
-                          sm: "16px",
-                        }}
-                        overflowWrap={"break-word"}
-                        maxW={{
-                          base: "sm",
-                          md: "md",
-                          lg: "sm",
-                          sm: "sm",
-                        }}
-                        ml={{ base: "0", md: "0", lg: "0", sm: "10" }}
-                        mr={{ base: "0", md: "0", lg: "0", sm: "10" }}
-                        as="div"
-                        textAlign={"justify"}
-                        dangerouslySetInnerHTML={handleMarkup(project.body)}
-                      ></Box>
-                      <Box
-                        as="div"
-                        borderTop="3px dotted"
-                        borderTopColor={"brand.500"}
-                        ml={{ base: "0", md: "0", lg: "0", sm: "10" }}
-                        mr={{ base: "0", md: "0", lg: "0", sm: "10" }}
-                        mt={"5"}
-                        mb={"2"}
-                      ></Box>
+                <WrapItem flex="1" minW={{ base: "100%", md: "400px" }}>
+                  <VStack spacing={6} align="stretch">
+                    
+                    <Box
+                      color={textColor}
+                      fontSize="md"
+                      textAlign="justify"
+                      dangerouslySetInnerHTML={handleMarkup(project.body)}
+                    />
 
-                      <Box
-                        mt={5}
-                        ml={{ base: "0", md: "0", lg: "0", sm: "10" }}
-                        mr={{ base: "0", md: "0", lg: "0", sm: "10" }}
-                      >
-                        <Flex>
-                          <Box>
-                            <HStack spacing={4}>
-                              {stack.map((stack) => (
-                                <Tag
-                                  key={stack}
-                                  variant="solid"
-                                  colorScheme="brand"
-                                >
-                                  {stack}
-                                </Tag>
-                              ))}
-                            </HStack>
-                          </Box>
-                          <Spacer />
-                          <Box>
-                            <HStack spacing={4}>
-                              {project.repo == "none" ? (
-                                <></>
-                              ) : (
-                                <Box
-                                  as="a"
-                                  href={project.repo}
-                                  target="_blank"
-                                  textDecoration={"none"}
-                                >
-                                  <Tag variant="outline" colorScheme="brandark">
-                                    <TagLeftIcon as={FaGithub} />
-                                    <TagLabel>Github</TagLabel>
-                                  </Tag>
-                                </Box>
-                              )}
-                              <Box
-                                  as="a"
-                                  href={project.link}
-                                  target="_blank"
-                                  textDecoration={"none"}
-                                >
-                              <Tag variant="outline" colorScheme="brandark">
-                                <TagLeftIcon as={FaExternalLinkAlt} />
-                                <TagLabel>Visiter</TagLabel>
-                              </Tag>
-                              </Box>
-                            </HStack>
-                          </Box>
-                        </Flex>
-                      </Box>
-                    </GridItem>
-                  </Grid>
+                    <Divider borderColor={dividerColor} borderStyle="dotted" borderWidth="2px" />
+
+                    <Flex direction={{ base: "column", md: "row" }} justify="space-between" align="center">
+                      <HStack spacing={2} wrap="wrap" mb={{ base: 4, md: 0 }}>
+                        {stack.map((tech) => (
+                          <Tag key={tech} colorScheme="brand" size="md" m={1}>
+                            {tech}
+                          </Tag>
+                        ))}
+                      </HStack>
+
+                      <HStack spacing={4}>
+                        {project.repo !== "none" && (
+                          <Link href={project.repo} isExternal>
+                            <Tag variant="outline" color={"text"}  size="md">
+                              <TagLeftIcon as={FaGithub} />
+                              <TagLabel>Code</TagLabel>
+                            </Tag>
+                          </Link>
+                        )}
+                        <Link href={project.link}  isExternal>
+                          <Tag variant="outline"   color={"text"} size="md">
+                            <TagLeftIcon as={FaExternalLinkAlt} />
+                            <TagLabel>Visiter</TagLabel>
+                          </Tag>
+                        </Link>
+                      </HStack>
+                    </Flex>
+                  </VStack>
                 </WrapItem>
               </Wrap>
-            </GridItem>
-          </Grid>
-        </Center>
-      </>
-    </>
+            </Box>
+          </GridItem>
+        </Grid>
+      </Center>
+    </Box>
   );
 }
