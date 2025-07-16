@@ -8,7 +8,7 @@ export default function HomeDesc() {
         <Heading
           as={"h6"}
           size={{ base: "sm", md: "md", lg: "md" }}
-          color={"brandark.500"}
+          color={"text"}
           fontWeight={"bold"}
         >
           Innover pour servir{" "}

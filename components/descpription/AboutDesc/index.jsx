@@ -4,7 +4,7 @@ export default function AboutDesc() {
   return (
     <Center>
       <Box>
-        <Text fontSize={{base:"sm", md: "md", lg:"md"}} fontWeight={"bold"} color={"brandark.500"} >
+        <Text fontSize={{base:"sm", md: "md", lg:"md"}} fontWeight={"bold"} color={"text"} >
           Technologies 🛠️{" "}
           <Box color="brand.500" as="span">
             - Afrique ☥  -
