@@ -9,21 +9,20 @@ import {
   HStack,
   Button,
   Box,
-  VStack,
   Center,
   Skeleton,
   SkeletonText,
-  Hide,
   Heading,
-  Divider,
   useToast,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const baseUrl = "https://abiodoun.rezolusoft.com/api/v1/";
-export default function BlogList(/* img_source, title */) {
+
+export default function BlogList() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("latest");
   const [posts, setPosts] = useState([]);
@@ -32,10 +31,19 @@ export default function BlogList(/* img_source, title */) {
   const moment = require("moment");
   const toast = useToast();
 
-  const fechtCategories = async () => {
+  // Couleurs adaptatives
+  const cardBg = useColorModeValue('rgba(255, 255, 255, 0.7)', 'rgba(0, 10, 64, 0.5)');
+  const buttonColor = useColorModeValue('rgb(255, 116, 36)', 'rgb(255, 116, 36)');
+  const cardBorder = useColorModeValue(
+    '1px solid rgba(255, 255, 255, 0.3)',
+    '1px solid rgba(255, 255, 255, 0.1)'
+  );
+  const textColor = useColorModeValue('brand_second.500', 'whiteAlpha.900');
+  const dateColor = useColorModeValue('brand.500', 'brand.200');
+
+  const fetchCategories = async () => {
     try {
       const response = await axios.get(baseUrl + "blog/category");
-      console.log(response.data);
       setCategories(response.data);
     } catch (e) {
       console.error("Error", e);
@@ -45,51 +53,49 @@ export default function BlogList(/* img_source, title */) {
   const fetchLatest = async () => {
     try {
       const response = await axios.get(baseUrl + "blog/post");
-      console.log(response.data);
       setPosts(response.data);
       setLoading(false);
       setLoaded(true);
     } catch (e) {
       console.error("Error", e);
-      toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite lors du chargement des données",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
+      showErrorToast();
     }
   };
+
   const fetchPosts = async () => {
     try {
       const response = await axios.get(
         baseUrl + "blog/post?category=" + selectedCategory
       );
-      console.log(response.data);
       setPosts(response.data);
       setLoading(false);
       setLoaded(true);
     } catch (e) {
       console.error("Error", e);
-      toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite lors du chargement des données",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
+      showErrorToast();
     }
   };
-  const hanndleSelect = (event) => {
+
+  const showErrorToast = () => {
+    toast({
+      title: "Erreur",
+      description: "Une erreur s'est produite lors du chargement des données",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
+  const handleSelect = (event) => {
     setSelectedCategory(event.target.value);
+    setPosts([])
     setLoading(true);
     setLoaded(false);
-    console.log("Selected", event.target.value);
   };
 
   useEffect(() => {
-    fechtCategories();
-    if (selectedCategory != "latest") {
+    fetchCategories();
+    if (selectedCategory !== "latest") {
       fetchPosts();
     } else {
       fetchLatest();
@@ -97,17 +103,24 @@ export default function BlogList(/* img_source, title */) {
   }, [selectedCategory]);
 
   return (
-    <>
+    <Box>
       <Center>
-        <HStack>
-          <Text mt={"20px"}>Categorie : </Text>
+        <HStack
+          sx={{
+            background: cardBg,
+            backdropFilter: 'blur(10px)',
+            borderRadius: 'lg',
+            p: 3,
+            mt: 5,
+          }}
+        >
+          <Text>Catégorie :</Text>
           <Select
-            mt={"20px"}
-            variant={"unstyled"}
+            variant="unstyled"
             value={selectedCategory}
-            w={"max-content"}
-            color={"brand.500"}
-            onChange={hanndleSelect}
+            w="max-content"
+            color="brand.500"
+            onChange={handleSelect}
           >
             <option value="latest">récents</option>
             {categories.map((category) => (
@@ -118,53 +131,93 @@ export default function BlogList(/* img_source, title */) {
           </Select>
         </HStack>
       </Center>
+
       <Center>
-        <Box maxW={{ base: "7xl", md: "xl", lg: "7xl", sm: "sm" }}>
-          <Card
-            hidden={loaded}
+        <Box maxW={{ base: "7xl", md: "xl", lg: "7xl", sm: "sm" }} px={4}>
+          {loading && (
+            <Card
             w={{ base: "sm", lg: "sm", md: "xs", sm: "xs" }}
             my={"5"}
             mx={"5"}
+              sx={{
+                background: cardBg,
+                backdropFilter: 'blur(10px)',
+                border: cardBorder,
+              }}
+            >
+              <Box p={6}>
+                <Skeleton height="150px" />
+                <SkeletonText mt={4} noOfLines={10} spacing={4} skeletonHeight={2} />
+              </Box>
+            </Card>
+          )}
+
+          <HStack 
+            my={5} 
+            spacing={0} 
+            overflowX="auto"
+            py={4}
+            sx={{
+              '&::-webkit-scrollbar': {
+                height: '6px',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                background: useColorModeValue('brand.500', 'brand.500'),
+                borderRadius: 'full',
+              },
+            }}
           >
-            <Box padding="6">
-              <Skeleton height="150px" />
-              <SkeletonText
-                mt="4"
-                noOfLines={10}
-                spacing="4"
-                skeletonHeight="2"
-              />
-            </Box>
-          </Card>
-          <HStack mx={"7px"} my={"20px"} overflowX="auto">
             {posts.map((post) => (
               <Card
-                w={{ base: "sm", lg: "sm", md: "xs", sm: "xs" }}
                 key={post.id}
-                flexShrink="0"
+                w={{ base: "sm", lg: "sm", md: "xs", sm: "xs" }}
+                mx={"2"}
                 my={"5"}
-                mx={"5"}
-                boxShadow={"md"}
+                flexShrink={0}
+                sx={{
+                  background: cardBg,
+                  backdropFilter: 'blur(10px)',
+                  border: cardBorder,
+                  boxShadow: 'lg',
+                  transition: 'all 0.3s ease',
+                  _hover: {
+                    transform: 'translateY(-5px)',
+                    boxShadow: 'xl',
+                  },
+                }}
               >
-                <Link
-                  color={"brand.500"}
-                  href={"/blog/[slug]"}
-                  as={`/blog/${post.slug}`}
-                >
+                <Link href={`/blog/${post.slug}`} passHref>
                   <CardBody>
-                    <Image src={post.banner} alt="banner" borderRadius="lg" />
-                    <Stack mt="10" spacing="3">
-                      <Heading as={"h5"} size="sm" color={"brandark.500"}>
+                    <Image 
+                      src={post.banner} 
+                      alt="banner" 
+                      borderRadius="lg"
+                    
+                    />
+                    <Stack mt={4} spacing={3}>
+                      <Heading 
+                        as="h5" 
+                        size="sm" 
+                        color={textColor}
+                        minH="50px"
+                      >
                         {post.title.toUpperCase()}
                       </Heading>
-                      <Box as={"p"} color={"brand.500"} fontWeight={"bold"}>
+                      <Text color={dateColor} fontWeight="bold">
                         {moment(post.created_at).format("Do MMMM YYYY")}
-                      </Box>
+                      </Text>
                     </Stack>
                   </CardBody>
-
                   <CardFooter>
-                    <Button variant={"solid"} w={"lg"} colorScheme="brand">
+                    <Button 
+                      variant="solid" 
+                      w="full" 
+                      colorScheme="brand"
+                      sx={{
+                        backdropFilter: 'blur(10px)',
+                        bg: buttonColor,
+                      }}
+                    >
                       Lire
                     </Button>
                   </CardFooter>
@@ -174,6 +227,6 @@ export default function BlogList(/* img_source, title */) {
           </HStack>
         </Box>
       </Center>
-    </>
+    </Box>
   );
 }
