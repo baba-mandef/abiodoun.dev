@@ -1,116 +1,41 @@
 import { SimpleGrid, Box, Center, Image, } from "@chakra-ui/react";
+import Tech from "@/components/Tech";
 
 export default function Stack() {
-  const styles = {
-
-    padding: '5px',
-    borderRadius: '10px',
-    boxShadow: '0px 4px 4px rgba(0, 10, 64, 0.51)',
-  }
+ 
   return (
     <>
 
       <Center>
 
     
-      <SimpleGrid columns={{ base: "8", md: "8", lg: "8", sm: "4",}} spacing={{ base: "10", md: "10", lg: "10", sm: "8" }} pt="10px">
+      <SimpleGrid columns={{ base: "6", md: "6", lg: "6", sm: "4",}} spacing={{ base: "10", md: "10", lg: "10", sm: "8" }} pt="10px">
           
-            <Box  boxSize={"50px"} style={styles}>
-              <Center>
-                <Image src="img/python.png"   alt="python"></Image>
-              </Center>
-            </Box>
-         
+             <Tech img="img/python.png" name="python"></Tech>
+
+            <Tech img="img/php.png" name="php"></Tech>
        
-            <Box boxSize={"50px"} style={styles}>
-              <Center>
-                <Image src="img/php.png"   alt="php"></Image>
-              </Center>
-            </Box>
-        
-       
-            <Box  boxSize={"50px"} style={styles}>
-              <Center>
-                <Image src="img/javascript.png"   alt="javascript"></Image>
-              </Center>
-            </Box>
+            <Tech img="img/javascript.png" name="javascript"></Tech>
  
+            <Tech img="img/django.png" name="django"></Tech>
 
-    
-            <Box boxSize={"50px"} style={styles}>
-              <Center>
-                <Image src="img/dart.png"   alt="dart"></Image>
-              </Center>
-            </Box>
+             {/* <Tech img="img/docker.png" name="docker"></Tech> */}
 
+             <Tech img="img/react.png" name="react"></Tech>
 
-        
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/django.png"   alt="django"></Image>
-              </Center>
-            </Box>
-       
-            <Box boxSize={"50px"} style={styles}>
-              <Center>
-                <Image src="img/vue.png"   alt="vue"></Image>
-              </Center>
-            </Box>
-
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/docker.png"   alt="docker"></Image>
-              </Center>
-            </Box>
-
-            <Box boxSize={"50px"} style={styles}>
-              <Center>
-                <Image src="img/react.png"   alt="react"></Image>
-              </Center>
-            </Box>
-
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/flutter.png"   alt="flutter"></Image>
-              </Center>
-            </Box>
+             <Tech img="svg/flet.svg" name="flet"></Tech>
   
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/electron.png"   alt="mysql"></Image>
-              </Center>
-            </Box>
+             <Tech img="img/mysql.png" name="mysql"></Tech>
 
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/mysql.png"   alt="mysql"></Image>
-              </Center>
-            </Box>
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/postgresql.png"   alt="postgresql"></Image>
-              </Center>
-            </Box>
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/gimp.png"   alt="gimp"></Image>
-              </Center>
-            </Box>
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/figma.png"   alt="figma"></Image>
-              </Center>
-            </Box>
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/ink.png"   alt="inkscape"></Image>
-              </Center>
-            </Box>
-            <Box boxSize={"50px"}  style={styles}>
-              <Center>
-                <Image src="img/kdenlive.png"   alt="kdenlive"></Image>
-              </Center>
-            </Box>
+             <Tech img="img/postgresql.png" name="postgresql"></Tech>
+            
+             <Tech img="img/gimp.png" name="gimp"></Tech>
+
+             <Tech img="img/figma.png" name="figma"></Tech>
+
+             <Tech img="img/ink.png" name="inkscape"></Tech>
+            
+             <Tech img="img/kdenlive.png" name="kdenlive"></Tech>
 
             
        
