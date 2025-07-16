@@ -11,14 +11,14 @@ export default function HomeBio() {
           fontSize="16"
           my="10"
           mb="5"
-          p="2"
-          color={"brandark.500"}
+          px={{ base: "10", md: "10", lg: "10", sm: "5"}}
+          color={"text"}
         >
           Hello ! Je suis{" "}
           <Box color="brand.500" as="span">
             Abiodoun Paraïso
           </Box>
-          .Passionné de programmation et de technologie J'aime créer et donner
+          . Passionné de programmation et de technologie J'aime créer et donner
           vie à mon immagination en écrivant des lignes de codes 👨🏾‍💻. Je construit
           des sites web, des applications et d'autres solutions technologiques pour
           relever les défis du quotidien.
@@ -35,11 +35,19 @@ export default function HomeBio() {
 
             <Box
               as="a"
-              href="https://twitter.com/baba_mandef"
+              href="https://youtube.com/@baba-mandef"
               target="_blank"
               color={"brand.500"}
               textDecoration={"underline"}
-            >Twitter</Box> ou {" "}
+            >Youtube</Box>, {" "}
+
+            <Box
+              as="a"
+              href="https://x.com/baba_mandef"
+              target="_blank"
+              color={"brand.500"}
+              textDecoration={"underline"}
+            >X</Box> ou {" "}
              <Box
               as="a"
               href="https://t.me/baba_mandef"
