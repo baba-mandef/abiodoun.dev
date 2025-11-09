@@ -39,7 +39,7 @@ var moment = require("moment");
 import "moment/locale/fr";
 moment.locale("fr");
 
-const baseUrl = "https://abiodoun.rezolusoft.com/api/v1/";
+const baseUrl = "https://mandef.rezolusoft.com/api/v1/";
 
 export default function Post() {
 
