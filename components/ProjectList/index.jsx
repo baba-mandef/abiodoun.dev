@@ -22,7 +22,7 @@ export default function ProjectList() {
   };
   const toast = useToast();
 
-  const baseUrl = "https://mandef.rezolusoft.com/api/v1/";
+  const baseUrl = "https://djehuty.rezolusoft.com/api/v1/";
 
   const [projects, setProjects] = useState([]);
 

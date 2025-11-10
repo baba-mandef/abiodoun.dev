@@ -29,7 +29,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 export default function ProjectDetails() {
-  const baseUrl = "https://mandef.rezolusoft.com/api/v1/";
+  const baseUrl = "https://djehuty.rezolusoft.com/api/v1/";
   const router = useRouter();
   const [project, setProject] = useState({});
   const [stack, setStack] = useState([]);

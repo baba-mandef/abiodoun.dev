@@ -20,7 +20,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const baseUrl = "https://mandef.rezolusoft.com/api/v1/";
+const baseUrl = "https://djehuty.rezolusoft.com/api/v1/";
 
 export default function BlogList() {
   const [categories, setCategories] = useState([]);

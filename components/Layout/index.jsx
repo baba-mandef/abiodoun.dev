@@ -1,6 +1,5 @@
 "use client";
 
-import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider, ColorModeScript, Box } from "@chakra-ui/react";
 import Head from "next/head";
 import Nav from "@/components/Nav";
@@ -9,7 +8,6 @@ import theme from "@/themes";
 export default function Layout({ children }) {
   return (
     <>
-      <CacheProvider>
          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <ChakraProvider theme={theme}>
           <Head>
@@ -62,7 +60,6 @@ export default function Layout({ children }) {
           </Box>
           <Nav />
         </ChakraProvider>
-      </CacheProvider>
     </>
   );
 }

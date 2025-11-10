@@ -32,7 +32,7 @@ export default function AboutBio() {
   const [message, setMessage] = useState("");
   const toast = useToast();
 
-  const baseUrl = "https://mandef.rezolusoft.com/api/v1/";
+  const baseUrl = "https://djehuty.rezolusoft.com/api/v1/";
   const handleMessageSubmit = async () => {
     try {
       if (name && email && message != "") {
