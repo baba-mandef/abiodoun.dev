@@ -358,7 +358,7 @@ export default function Post() {
                         m="auto"
                         as="div"
                         textAlign={"justify"}
-                        dangerouslySetInnerHTML={handleMarkup(post.post)}
+                        dangerouslySetInnerHTML={handleMarkup(post.post_display)}
                       ></Box>
                     </GridItem>
 
