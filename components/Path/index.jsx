@@ -18,7 +18,7 @@ import { useEffect } from "react";
 
 export default function Path() {
   const steps = [
-    { title: "Archtècte Systèmes - Rezolusoft", description: "Février 2024 - maintenant" },
+    { title: "Architecte Systèmes - Rezolusoft", description: "Février 2024 - maintenant" },
     { title: "Formateur en Informatique – Supérieur", description: "Depuis Mars 2023" },
     { title: "Développeur web Backend - Quatro", description: "Janvier 2023 - Décembre 2023" },
     { title: "Developpeur web Frontend - Izicone Sarl", description: "Juillet 2022 - Janvier 2023" },

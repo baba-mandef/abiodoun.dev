@@ -141,7 +141,7 @@ export default function AboutBio() {
             <Box color="brand.500" as="span">
               Abiodoun Paraïso
             </Box>
-            , Ingénieur Logiciel et architècte systèmes. Je travaille depuis le Bénin🇧🇯
+            , Ingénieur Logiciel et architecte systèmes. Je travaille depuis le Bénin🇧🇯
             dans la conception et le développement de solutions logicielles adaptées aux besoins des entreprises et particuliers.
             Je partage également mes connaissances et expériences en tant que professeur d'informatique au supérieur. 
             <br />
