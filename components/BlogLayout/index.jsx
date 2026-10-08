@@ -9,7 +9,7 @@ export default function BlogLayout({ children, headData = {} }) {
   const {
     title = "Abiodoun Baba Mandef",
     description = "Je suis Abiodoun Paraïso. Passionné de programmation, je crée et donne vie à mon immagination en écrivant des lignes de codes.",
-    image = "https://i.imgur.com/pDl0Tkb.png",
+    image = "https://imgur.com/a/LTzmPpU",
     url = "https://abiodoun.dev/"
   } = headData;
 
