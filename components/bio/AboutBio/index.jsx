@@ -141,13 +141,12 @@ export default function AboutBio() {
             <Box color="brand.500" as="span">
               Abiodoun Paraïso
             </Box>
-            , développeur de logiciels basé au Bénin🇧🇯. Je travaille
-            principalement sur des projets web et des solutions applicatives multiplateformes.
+            , Ingénieur Logiciel et architècte systèmes. Je travaille depuis le Bénin🇧🇯
+            dans la conception et le développement de solutions logicielles adaptées aux besoins des entreprises et particuliers.
             Je partage également mes connaissances et expériences en tant que professeur d'informatique au supérieur. 
             <br />
             <br />
-            Au fil du temps, j'ai acquis de nombreuses compétences en explorant divers langages, 
-            frameworks et outils, notamment à travers mes contributions à des projets {" "}
+            Je travaille principalement avec Python et Javascript pour développer des applications web, des API et des systèmes métier à travers également des contributions{" "}
             <Box
               as="a"
               href="https://github.com/baba-mandef"
@@ -159,9 +158,9 @@ export default function AboutBio() {
             </Box>
             <br /> <br />
             Mon objectif est de concevoir des expériences numériques agréables,
-            en m'appuyant sur des systèmes solides et ergonomiques, afin
-            de résoudre les problème du quotidien. Je privilégie une
-            approche  🔄itérative et 💡créative  pour optimiser ⚙️ mes solutions.
+            en m'appuyant sur des systèmes robustes, maintenables et ergonomiques, afin
+            de résoudre les défis du quotidien. Je privilégie une
+            approche  itérative et créative  pour optimiser  mes solutions, avec une attention particulière portée aux réalités et aux besoins des utilisateurs.
             <br />
             <br />
             Ouvert aux collaborations🤝🏾 et à toutes autres opportunités
