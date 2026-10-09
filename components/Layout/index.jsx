@@ -39,7 +39,7 @@ export default function Layout({ children }) {
             />
             <meta
               property="og:image"
-              content="https://imgur.com/a/LTzmPpU"
+              content="https://i.imgur.com/JbKy4MC.png"
             />
 
             {/* Twitter */}
@@ -52,7 +52,7 @@ export default function Layout({ children }) {
             />
             <meta
               property="twitter:image"
-              content="https://imgur.com/a/LTzmPpU"
+              content="https://i.imgur.com/JbKy4MC.png"
             />
           </Head>
           <Box as="div" mb={"50px"}>

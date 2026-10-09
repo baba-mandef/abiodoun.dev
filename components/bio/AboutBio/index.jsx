@@ -146,7 +146,7 @@ export default function AboutBio() {
             Je partage également mes connaissances et expériences en tant que professeur d'informatique au supérieur. 
             <br />
             <br />
-            Je travaille principalement avec Python et Javascript pour développer des applications web, des API et des systèmes métier à travers également des contributions{" "}
+            Je travaille principalement avec Python et Javascript pour développer des applications web, des API et des systèmes métier avec une approche pro{" "}
             <Box
               as="a"
               href="https://github.com/baba-mandef"
@@ -154,7 +154,7 @@ export default function AboutBio() {
               color={"brand.500"}
               textDecoration={"underline"}
             >
-              open source sur GitHub.
+              open source avec GitHub.
             </Box>
             <br /> <br />
             Mon objectif est de concevoir des expériences numériques agréables,
